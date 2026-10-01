@@ -22,7 +22,7 @@ describe("url codec", () => {
   });
 
   it("round-trips values", () => {
-    const v = { n: 0.455, s: "b", t: true };
+    const v = { n: 0.4555, s: "b", t: true };
     expect(decode(schema, encode(schema, v))).toEqual(v);
   });
 

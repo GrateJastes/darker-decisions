@@ -1,5 +1,6 @@
 import { Field } from "./Field";
-import { formatValue, type DisplayUnit } from "./format";
+import type { DisplayUnit } from "./format";
+import { ValueInput } from "./ValueInput";
 
 const STICKY_FRACTION = 0.03;
 
@@ -22,7 +23,21 @@ export function snap(value: number, sticky: readonly number[], radius: number): 
 export function Slider({ label, value, min, max, step, unit, hint, sticky = [], onChange }: SliderProps) {
   const notches = sticky.filter((s) => s > min && s < max);
   return (
-    <Field label={label} value={formatValue(value, unit)} hint={hint}>
+    <Field
+      label={label}
+      value={
+        <ValueInput
+          label={label}
+          value={value}
+          min={min}
+          max={max}
+          step={step}
+          unit={unit}
+          onChange={onChange}
+        />
+      }
+      hint={hint}
+    >
       <div className="relative">
         <input
           type="range"

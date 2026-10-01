@@ -12,6 +12,7 @@ export type RawValues = Readonly<Record<string, number | string | boolean>>;
 interface ParamCommon {
   group?: string;
   hidden?: boolean;
+  when?: (values: RawValues) => boolean;
 }
 
 export interface NumberParam extends ParamCommon {
@@ -25,6 +26,10 @@ export interface NumberParam extends ParamCommon {
   hint?: string;
   range?: (values: RawValues, data: GameData) => readonly [number, number];
   sticky?: readonly number[];
+  derive?: {
+    get: (values: RawValues) => number;
+    set: (value: number, values: RawValues) => Record<string, number>;
+  };
 }
 
 export interface SelectParam extends ParamCommon {
@@ -83,6 +88,7 @@ export interface SeriesSpec {
   label: string;
   points: readonly { x: number; y: number }[];
   emphasis: "primary" | "secondary";
+  dashed?: boolean;
 }
 
 export interface BandSpec {
@@ -135,7 +141,7 @@ export interface ParamGroup {
   id: string;
   label?: string;
   placement: "inputs" | "chart";
-  columns?: number;
+  columns?: number | "auto";
 }
 
 export interface CalculatorModel<S extends ParamSchema = ParamSchema> {
@@ -162,6 +168,19 @@ export function activePreset<S extends ParamSchema>(
   return group.options.find((o) => matches(o, values))?.value;
 }
 
+export function paramPatch<S extends ParamSchema>(
+  schema: S,
+  key: keyof S & string,
+  value: ParamValues<S>[keyof S],
+  values: ParamValues<S>,
+): Partial<ParamValues<S>> {
+  const def = schema[key]!;
+  if (def.kind === "number" && def.derive) {
+    return def.derive.set(value as number, values as RawValues) as Partial<ParamValues<S>>;
+  }
+  return { [key]: value } as Partial<ParamValues<S>>;
+}
+
 export function presetPatch<S extends ParamSchema>(
   group: PresetGroup<S>,
   option: PresetOption<S>,
@@ -176,8 +195,16 @@ export interface LayoutSection<S extends ParamSchema> {
   id: string;
   label?: string;
   placement: ParamGroup["placement"];
-  columns?: number;
+  columns?: number | "auto";
   items: LayoutItem<S>[];
+}
+
+export function isVisible<S extends ParamSchema>(
+  model: CalculatorModel<S>,
+  item: LayoutItem<S>,
+  values: ParamValues<S>,
+) {
+  return item.kind === "preset" || (model.params[item.key]?.when?.(values as RawValues) ?? true);
 }
 
 export function layout<S extends ParamSchema>(model: CalculatorModel<S>): LayoutSection<S>[] {
@@ -212,12 +239,15 @@ export function resolveParams<S extends ParamSchema>(
   data: GameData,
 ): ResolvedParams<S> {
   const resolved: Record<string, unknown> = { ...values };
+  for (const [key, def] of Object.entries(schema)) {
+    if (def.kind === "number" && def.derive) resolved[key] = def.derive.get(values as RawValues);
+  }
   const bounds: Record<string, readonly [number, number]> = {};
   for (const [key, def] of Object.entries(schema)) {
     if (def.kind !== "number" || !def.range) continue;
-    const [lo, hi] = def.range(values as RawValues, data);
+    const [lo, hi] = def.range(resolved as RawValues, data);
     bounds[key] = [lo, hi];
-    resolved[key] = Math.min(hi, Math.max(lo, values[key] as number));
+    resolved[key] = Math.min(hi, Math.max(lo, resolved[key] as number));
   }
   return { values: resolved as ParamValues<S>, bounds: bounds as ResolvedParams<S>["bounds"] };
 }

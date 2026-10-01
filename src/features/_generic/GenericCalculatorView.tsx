@@ -2,7 +2,9 @@ import { useMemo, type CSSProperties } from "react";
 import { currentData } from "@data/index";
 import {
   activePreset,
+  isVisible,
   layout,
+  paramPatch,
   presetPatch,
   resolveParams,
   type CalculatorModel,
@@ -23,46 +25,48 @@ import { VerdictBanner } from "@ui/VerdictBanner";
 import { formatQuantity, presentStatement } from "./present";
 
 export function GenericCalculatorView<S extends ParamSchema>({ model }: { model: CalculatorModel<S> }) {
-  const [values, setParam, setMany] = useParams(model.params);
+  const [values, , setMany] = useParams(model.params);
   const resolved = useMemo(() => resolveParams(model.params, values, currentData), [model, values]);
   const result = useMemo(() => model.compute(resolved.values, currentData), [model, resolved]);
   const sections = useMemo(() => layout(model), [model]);
 
-  const renderSection = (section: LayoutSection<S>) => (
-    <div key={section.id} className="mb-2">
-      {section.label && (
-        <h3 className="mt-0 mb-3 border-b border-border pb-1 font-display text-[11px] tracking-[0.2em] text-ink-dim uppercase">
-          {section.label}
-        </h3>
-      )}
-      <div
-        className={
-          section.columns && section.columns > 1
-            ? "grid gap-x-8 sm:grid-cols-[repeat(var(--cols),minmax(0,1fr))]"
-            : ""
-        }
-        style={section.columns ? ({ "--cols": section.columns } as CSSProperties) : undefined}
-      >
-        {section.items.map((item) =>
-          item.kind === "preset" ? (
-            <PresetSelect
-              key={`preset-${item.preset.id}`}
-              group={item.preset}
-              values={resolved.values}
-              onApply={setMany}
-            />
-          ) : (
-            <ParamControl
-              key={item.key}
-              def={withBounds(model.params[item.key]!, resolved.bounds[item.key])}
-              value={resolved.values[item.key] as ParamValues<S>[keyof S]}
-              onChange={(v) => setParam(item.key, v as ParamValues<S>[keyof S])}
-            />
-          ),
+  const renderSection = (section: LayoutSection<S>) => {
+    const items = section.items.filter((item) => isVisible(model, item, resolved.values));
+    const columns = section.columns === "auto" ? items.length : (section.columns ?? 1);
+    return (
+      <div key={section.id} className="mb-2">
+        {section.label && (
+          <h3 className="mt-0 mb-3 border-b border-border pb-1 font-display text-[11px] tracking-[0.2em] text-ink-dim uppercase">
+            {section.label}
+          </h3>
         )}
+        <div
+          className={columns > 1 ? "grid gap-x-8 sm:grid-cols-[repeat(var(--cols),minmax(0,1fr))]" : ""}
+          style={columns > 1 ? ({ "--cols": columns } as CSSProperties) : undefined}
+        >
+          {items.map((item) =>
+            item.kind === "preset" ? (
+              <PresetSelect
+                key={`preset-${item.preset.id}`}
+                group={item.preset}
+                values={resolved.values}
+                onApply={setMany}
+              />
+            ) : (
+              <ParamControl
+                key={item.key}
+                def={withBounds(model.params[item.key]!, resolved.bounds[item.key])}
+                value={resolved.values[item.key] as ParamValues<S>[keyof S]}
+                onChange={(v) =>
+                  setMany(paramPatch(model.params, item.key, v as ParamValues<S>[keyof S], resolved.values))
+                }
+              />
+            ),
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   const inputSections = sections.filter((s) => s.placement === "inputs");
   const chartSections = sections.filter((s) => s.placement === "chart");
@@ -81,10 +85,12 @@ export function GenericCalculatorView<S extends ParamSchema>({ model }: { model:
         details={result.verdict.details.map(presentStatement)}
       />
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <Panel title="Inputs">{inputSections.map(renderSection)}</Panel>
+      <div className={inputSections.length > 0 ? "grid gap-6 lg:grid-cols-3" : "grid gap-6"}>
+        {inputSections.length > 0 && <Panel title="Inputs">{inputSections.map(renderSection)}</Panel>}
 
-        <div className="flex flex-col gap-6 lg:col-span-2">
+        <div
+          className={inputSections.length > 0 ? "flex flex-col gap-6 lg:col-span-2" : "flex flex-col gap-6"}
+        >
           {result.charts.map((c, i) => (
             <Panel key={c.id} title={c.title}>
               <ChartView x={c.x} y={c.y} series={c.series} bands={c.bands} markers={c.markers} />
@@ -101,7 +107,10 @@ export function GenericCalculatorView<S extends ParamSchema>({ model }: { model:
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div
+        className="grid grid-cols-2 gap-4 lg:grid-cols-[repeat(var(--cols),minmax(0,1fr))]"
+        style={{ "--cols": Math.min(result.readouts.length, 4) } as CSSProperties}
+      >
         {result.readouts.map((r) => (
           <Readout key={r.id} label={r.label} value={formatQuantity(r.value)} hint={r.hint} />
         ))}

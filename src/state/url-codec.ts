@@ -1,5 +1,7 @@
 import type { ParamDef, ParamSchema, ParamValues } from "@models/types";
 
+const TYPED_PRECISION = 10;
+
 function decodeOne(def: ParamDef, raw: string | null): ParamDef["default"] {
   if (raw === null) return def.default;
   switch (def.kind) {
@@ -7,7 +9,8 @@ function decodeOne(def: ParamDef, raw: string | null): ParamDef["default"] {
       const n = Number(raw);
       if (!Number.isFinite(n)) return def.default;
       const clamped = Math.min(def.max, Math.max(def.min, n));
-      return Math.round(clamped / def.step) * def.step;
+      const grain = def.unit === "rating" ? def.step : def.step / TYPED_PRECISION;
+      return Number((Math.round(clamped / grain) * grain).toFixed(10));
     }
     case "select":
       return def.options.some((o) => o.value === raw) ? raw : def.default;
@@ -33,6 +36,7 @@ export function encode<S extends ParamSchema>(schema: S, values: ParamValues<S>)
   const q = new URLSearchParams();
   for (const [k, def] of Object.entries(schema)) {
     const v = values[k] as ParamDef["default"];
+    if (def.kind === "number" && def.derive) continue;
     if (v !== def.default) q.set(k, encodeOne(def, v));
   }
   const s = q.toString();
