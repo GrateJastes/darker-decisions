@@ -84,4 +84,10 @@ describe("mdb-vs-magpen", () => {
     for (const pt of chart!.series[0]!.points) expect(pt.y).toBeLessThanOrEqual(1.5 + 1e-9);
     expect(chart!.series[0]!.points[0]!.y).toBeCloseTo(1.5, 6);
   });
+
+  it("words the headline around pen you already have", () => {
+    const headline = (q: typeof p) => mdbVsMagpen.compute(q, data).verdict.headline.template;
+    expect(headline({ ...p, mdr: 0.35, pen: 0, wpen: 0 })).toContain("add magic pen once you reach");
+    expect(headline({ ...p, mdr: 0.35, pen: 0.05, wpen: 0.1 })).toContain("with your {pen} magic pen");
+  });
 });

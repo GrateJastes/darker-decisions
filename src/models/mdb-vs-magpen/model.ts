@@ -206,10 +206,16 @@ export const mdbVsMagpen = defineModel({
             }
           : at <= MPB_MIN
             ? { template: "Against {mdr} MDR, magic pen is the better stat at any MPB.", values: { mdr } }
-            : {
-                template: "Against {mdr} MDR, start adding magic pen once you reach {at} MPB.",
-                values: { mdr, at: pct(at) },
-              };
+            : p.wpen + p.pen > 0
+              ? {
+                  template:
+                    "Against {mdr} MDR, with your {pen} magic pen, more of it pays off once you reach {at} MPB.",
+                  values: { mdr, pen: pct(p.wpen + p.pen), at: pct(at) },
+                }
+              : {
+                  template: "Against {mdr} MDR, add magic pen once you reach {at} MPB.",
+                  values: { mdr, at: pct(at) },
+                };
 
     const details: Statement[] = [
       {
