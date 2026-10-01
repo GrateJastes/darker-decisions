@@ -80,6 +80,12 @@
     "damageReductionRaised": 0.75,
     "penetration": 1
   },
+  "perks": {
+    "defenseMastery": {
+      "itemArmorRatingBonus": 0.15,
+      "maxPhysicalDamageReduction": 0.75
+    }
+  },
   "sources": [
     {
       "id": "bard-dinofdarkness-tier-1",
@@ -209,7 +215,7 @@
     },
     {
       "id": "sorcerer-electricdash-hit",
-      "label": "Electric Dash — hit",
+      "label": "Electric Dash \u2014 hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -218,7 +224,7 @@
     },
     {
       "id": "sorcerer-electricdash-finalehit",
-      "label": "Electric Dash — finale hit",
+      "label": "Electric Dash \u2014 finale hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -227,7 +233,7 @@
     },
     {
       "id": "sorcerer-elementalbolt-hit",
-      "label": "Elemental Bolt — hit",
+      "label": "Elemental Bolt \u2014 hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -236,7 +242,7 @@
     },
     {
       "id": "sorcerer-elementalbolt-burning",
-      "label": "Elemental Bolt — burn",
+      "label": "Elemental Bolt \u2014 burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -245,7 +251,7 @@
     },
     {
       "id": "sorcerer-elementalbolt-burningfiremastery",
-      "label": "Elemental Bolt — burn (Fire Mastery)",
+      "label": "Elemental Bolt \u2014 burn (Fire Mastery)",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -263,7 +269,7 @@
     },
     {
       "id": "sorcerer-firearrow-hit",
-      "label": "Fire Arrow — hit",
+      "label": "Fire Arrow \u2014 hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -272,7 +278,7 @@
     },
     {
       "id": "sorcerer-firearrow-burning",
-      "label": "Fire Arrow — burn",
+      "label": "Fire Arrow \u2014 burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -281,7 +287,7 @@
     },
     {
       "id": "sorcerer-firearrow-burningfiremastery",
-      "label": "Fire Arrow — burn (Fire Mastery)",
+      "label": "Fire Arrow \u2014 burn (Fire Mastery)",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -290,7 +296,7 @@
     },
     {
       "id": "sorcerer-fireorb-hit",
-      "label": "Fire Orb — hit",
+      "label": "Fire Orb \u2014 hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -299,7 +305,7 @@
     },
     {
       "id": "sorcerer-fireorb-hitradius",
-      "label": "Fire Orb — hit radius",
+      "label": "Fire Orb \u2014 hit radius",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -308,7 +314,7 @@
     },
     {
       "id": "sorcerer-fireorb-radius",
-      "label": "Fire Orb — radius",
+      "label": "Fire Orb \u2014 radius",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -317,7 +323,7 @@
     },
     {
       "id": "sorcerer-fireorb-burning",
-      "label": "Fire Orb — burn",
+      "label": "Fire Orb \u2014 burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -326,7 +332,7 @@
     },
     {
       "id": "sorcerer-fireorb-burningfiremastery",
-      "label": "Fire Orb — burn (Fire Mastery)",
+      "label": "Fire Orb \u2014 burn (Fire Mastery)",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -335,7 +341,7 @@
     },
     {
       "id": "sorcerer-flamefrostspear-hitfiredamage",
-      "label": "Flamefrost Spear — hit fire",
+      "label": "Flamefrost Spear \u2014 hit fire",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -344,7 +350,7 @@
     },
     {
       "id": "sorcerer-flamefrostspear-hiticedamage",
-      "label": "Flamefrost Spear — hit ice",
+      "label": "Flamefrost Spear \u2014 hit ice",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -353,7 +359,7 @@
     },
     {
       "id": "sorcerer-flamefrostspear-burning",
-      "label": "Flamefrost Spear — burn",
+      "label": "Flamefrost Spear \u2014 burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -362,7 +368,7 @@
     },
     {
       "id": "sorcerer-flamefrostspear-burningfiremastery",
-      "label": "Flamefrost Spear — burn (Fire Mastery)",
+      "label": "Flamefrost Spear \u2014 burn (Fire Mastery)",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -371,7 +377,7 @@
     },
     {
       "id": "sorcerer-flamestrike-hit",
-      "label": "Flamestrike — hit",
+      "label": "Flamestrike \u2014 hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -380,7 +386,7 @@
     },
     {
       "id": "sorcerer-flamestrike-burning",
-      "label": "Flamestrike — burn",
+      "label": "Flamestrike \u2014 burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -389,7 +395,7 @@
     },
     {
       "id": "sorcerer-flamestrike-burningfiremastery",
-      "label": "Flamestrike — burn (Fire Mastery)",
+      "label": "Flamestrike \u2014 burn (Fire Mastery)",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -398,7 +404,7 @@
     },
     {
       "id": "sorcerer-flamethrower-hit",
-      "label": "Flamethrower — hit",
+      "label": "Flamethrower \u2014 hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -407,7 +413,7 @@
     },
     {
       "id": "sorcerer-flamethrower-burning",
-      "label": "Flamethrower — burn",
+      "label": "Flamethrower \u2014 burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -416,7 +422,7 @@
     },
     {
       "id": "sorcerer-flamethrower-burningfiremastery",
-      "label": "Flamethrower — burn (Fire Mastery)",
+      "label": "Flamethrower \u2014 burn (Fire Mastery)",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -434,7 +440,7 @@
     },
     {
       "id": "sorcerer-frostlightning-lightninghit",
-      "label": "Frost Lightning — lightning hit",
+      "label": "Frost Lightning \u2014 lightning hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -443,7 +449,7 @@
     },
     {
       "id": "sorcerer-frostlightning-icehit",
-      "label": "Frost Lightning — ice hit",
+      "label": "Frost Lightning \u2014 ice hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -506,7 +512,7 @@
     },
     {
       "id": "sorcerer-plasmablast-hit",
-      "label": "Plasma Blast — hit",
+      "label": "Plasma Blast \u2014 hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -515,7 +521,7 @@
     },
     {
       "id": "sorcerer-plasmablast-burning",
-      "label": "Plasma Blast — burn",
+      "label": "Plasma Blast \u2014 burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -524,7 +530,7 @@
     },
     {
       "id": "sorcerer-summonlavaelemental-lavaelementalburningradius",
-      "label": "Summon Lava Elemental — lava elemental burn radius",
+      "label": "Summon Lava Elemental \u2014 lava elemental burn radius",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -533,7 +539,7 @@
     },
     {
       "id": "sorcerer-summonlavaelemental-lavaelementalburning",
-      "label": "Summon Lava Elemental — lava elemental burn",
+      "label": "Summon Lava Elemental \u2014 lava elemental burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -542,7 +548,7 @@
     },
     {
       "id": "sorcerer-summonlavaelemental-lavaelementalburningfiremastery",
-      "label": "Summon Lava Elemental — lava elemental burn (Fire Mastery)",
+      "label": "Summon Lava Elemental \u2014 lava elemental burn (Fire Mastery)",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -569,7 +575,7 @@
     },
     {
       "id": "sorcerer-walloffire-hit",
-      "label": "Wall of Fire — hit",
+      "label": "Wall of Fire \u2014 hit",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -578,7 +584,7 @@
     },
     {
       "id": "sorcerer-walloffire-aura",
-      "label": "Wall of Fire — aura",
+      "label": "Wall of Fire \u2014 aura",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -587,7 +593,7 @@
     },
     {
       "id": "sorcerer-walloffire-burning",
-      "label": "Wall of Fire — burn",
+      "label": "Wall of Fire \u2014 burn",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -596,7 +602,7 @@
     },
     {
       "id": "sorcerer-walloffire-burningfiremastery",
-      "label": "Wall of Fire — burn (Fire Mastery)",
+      "label": "Wall of Fire \u2014 burn (Fire Mastery)",
       "group": "Sorcerer",
       "kind": "spell",
       "school": "magical",
@@ -695,7 +701,7 @@
     },
     {
       "id": "warlock-boltofdarkness-hit",
-      "label": "Bolt of Darkness — hit",
+      "label": "Bolt of Darkness \u2014 hit",
       "group": "Warlock",
       "kind": "spell",
       "school": "magical",
@@ -704,7 +710,7 @@
     },
     {
       "id": "warlock-boltofdarkness-darkarrowhit",
-      "label": "Bolt of Darkness — dark arrow hit",
+      "label": "Bolt of Darkness \u2014 dark arrow hit",
       "group": "Warlock",
       "kind": "spell",
       "school": "magical",
@@ -713,7 +719,7 @@
     },
     {
       "id": "warlock-curseofpain-hit",
-      "label": "Curse of Pain — hit",
+      "label": "Curse of Pain \u2014 hit",
       "group": "Warlock",
       "kind": "spell",
       "school": "magical",
@@ -722,7 +728,7 @@
     },
     {
       "id": "warlock-curseofpain-hitcursemastery",
-      "label": "Curse of Pain — hit (Curse Mastery)",
+      "label": "Curse of Pain \u2014 hit (Curse Mastery)",
       "group": "Warlock",
       "kind": "spell",
       "school": "magical",
@@ -731,7 +737,7 @@
     },
     {
       "id": "warlock-curseofpain-dot",
-      "label": "Curse of Pain — DoT",
+      "label": "Curse of Pain \u2014 DoT",
       "group": "Warlock",
       "kind": "spell",
       "school": "magical",
@@ -740,7 +746,7 @@
     },
     {
       "id": "warlock-curseofpain-dotcursemastery",
-      "label": "Curse of Pain — DoT (Curse Mastery)",
+      "label": "Curse of Pain \u2014 DoT (Curse Mastery)",
       "group": "Warlock",
       "kind": "spell",
       "school": "magical",
@@ -839,7 +845,7 @@
     },
     {
       "id": "wizard-arcaneinfusion-damagesplash",
-      "label": "Arcane Infusion — splash",
+      "label": "Arcane Infusion \u2014 splash",
       "group": "Wizard",
       "kind": "skill",
       "school": "magical",
@@ -848,7 +854,7 @@
     },
     {
       "id": "wizard-chainlightning-hit",
-      "label": "Chain Lightning — hit",
+      "label": "Chain Lightning \u2014 hit",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -857,7 +863,7 @@
     },
     {
       "id": "wizard-chainlightning-bounce1",
-      "label": "Chain Lightning — bounce 1",
+      "label": "Chain Lightning \u2014 bounce 1",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -866,7 +872,7 @@
     },
     {
       "id": "wizard-chainlightning-bounce2",
-      "label": "Chain Lightning — bounce 2",
+      "label": "Chain Lightning \u2014 bounce 2",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -875,7 +881,7 @@
     },
     {
       "id": "wizard-chainlightning-bounce3",
-      "label": "Chain Lightning — bounce 3",
+      "label": "Chain Lightning \u2014 bounce 3",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -884,7 +890,7 @@
     },
     {
       "id": "wizard-explosion-hit",
-      "label": "Explosion — hit",
+      "label": "Explosion \u2014 hit",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -893,7 +899,7 @@
     },
     {
       "id": "wizard-explosion-burning",
-      "label": "Explosion — burn",
+      "label": "Explosion \u2014 burn",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -902,7 +908,7 @@
     },
     {
       "id": "wizard-explosion-burningfiremastery",
-      "label": "Explosion — burn (Fire Mastery)",
+      "label": "Explosion \u2014 burn (Fire Mastery)",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -911,7 +917,7 @@
     },
     {
       "id": "wizard-fireball-hit",
-      "label": "Fireball — hit",
+      "label": "Fireball \u2014 hit",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -920,7 +926,7 @@
     },
     {
       "id": "wizard-fireball-aoe",
-      "label": "Fireball — AoE",
+      "label": "Fireball \u2014 AoE",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -929,7 +935,7 @@
     },
     {
       "id": "wizard-fireball-dot",
-      "label": "Fireball — DoT",
+      "label": "Fireball \u2014 DoT",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -938,7 +944,7 @@
     },
     {
       "id": "wizard-fireball-dotfiremastery",
-      "label": "Fireball — DoT (Fire Mastery)",
+      "label": "Fireball \u2014 DoT (Fire Mastery)",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -965,7 +971,7 @@
     },
     {
       "id": "wizard-ignite-hit",
-      "label": "Ignite — hit",
+      "label": "Ignite \u2014 hit",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -974,7 +980,7 @@
     },
     {
       "id": "wizard-ignite-burning",
-      "label": "Ignite — burn",
+      "label": "Ignite \u2014 burn",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -983,7 +989,7 @@
     },
     {
       "id": "wizard-ignite-burningfiremastery",
-      "label": "Ignite — burn (Fire Mastery)",
+      "label": "Ignite \u2014 burn (Fire Mastery)",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -1010,7 +1016,7 @@
     },
     {
       "id": "wizard-meteorstrike-hit",
-      "label": "Meteor Strike — hit",
+      "label": "Meteor Strike \u2014 hit",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -1019,7 +1025,7 @@
     },
     {
       "id": "wizard-meteorstrike-burning",
-      "label": "Meteor Strike — burn",
+      "label": "Meteor Strike \u2014 burn",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -1028,7 +1034,7 @@
     },
     {
       "id": "wizard-meteorstrike-burningfiremastery",
-      "label": "Meteor Strike — burn (Fire Mastery)",
+      "label": "Meteor Strike \u2014 burn (Fire Mastery)",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -1037,7 +1043,7 @@
     },
     {
       "id": "wizard-zap-hit",
-      "label": "Zap — hit",
+      "label": "Zap \u2014 hit",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -1046,7 +1052,7 @@
     },
     {
       "id": "wizard-zap-dot",
-      "label": "Zap — DoT",
+      "label": "Zap \u2014 DoT",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -1055,7 +1061,7 @@
     },
     {
       "id": "wizard-zap-dotfiremastery",
-      "label": "Zap — DoT (Fire Mastery)",
+      "label": "Zap \u2014 DoT (Fire Mastery)",
       "group": "Wizard",
       "kind": "spell",
       "school": "magical",
@@ -1064,7 +1070,7 @@
     },
     {
       "id": "ranger-explosiveshot-hit",
-      "label": "Explosive Shot — hit",
+      "label": "Explosive Shot \u2014 hit",
       "group": "Ranger",
       "kind": "skill",
       "school": "magical",
@@ -1073,7 +1079,7 @@
     },
     {
       "id": "ranger-explosiveshot-burn",
-      "label": "Explosive Shot — burn",
+      "label": "Explosive Shot \u2014 burn",
       "group": "Ranger",
       "kind": "skill",
       "school": "magical",
@@ -1091,7 +1097,7 @@
     },
     {
       "id": "weapon-abyssal-trident-artifactaddeffect",
-      "label": "Abyssal Trident — add effect",
+      "label": "Abyssal Trident \u2014 add effect",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1100,7 +1106,7 @@
     },
     {
       "id": "weapon-catice",
-      "label": "Catice — attack",
+      "label": "Catice \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1109,7 +1115,7 @@
     },
     {
       "id": "weapon-catice-uniqueadditionalhit",
-      "label": "Catice — additional hit",
+      "label": "Catice \u2014 additional hit",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1118,7 +1124,7 @@
     },
     {
       "id": "weapon-cinder-additionaldamage",
-      "label": "Cinder — additional damage",
+      "label": "Cinder \u2014 additional damage",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1127,7 +1133,7 @@
     },
     {
       "id": "weapon-cinder-burn",
-      "label": "Cinder — burn",
+      "label": "Cinder \u2014 burn",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1136,7 +1142,7 @@
     },
     {
       "id": "weapon-crystal-sword-poor",
-      "label": "Crystal Sword (Poor) — attack",
+      "label": "Crystal Sword (Poor) \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1145,7 +1151,7 @@
     },
     {
       "id": "weapon-crystal-sword-common",
-      "label": "Crystal Sword (Common) — attack",
+      "label": "Crystal Sword (Common) \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1154,7 +1160,7 @@
     },
     {
       "id": "weapon-crystal-sword-uncommon",
-      "label": "Crystal Sword (Uncommon) — attack",
+      "label": "Crystal Sword (Uncommon) \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1163,7 +1169,7 @@
     },
     {
       "id": "weapon-crystal-sword-rare",
-      "label": "Crystal Sword (Rare) — attack",
+      "label": "Crystal Sword (Rare) \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1172,7 +1178,7 @@
     },
     {
       "id": "weapon-crystal-sword-epic",
-      "label": "Crystal Sword (Epic) — attack",
+      "label": "Crystal Sword (Epic) \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1181,7 +1187,7 @@
     },
     {
       "id": "weapon-crystal-sword-legendary",
-      "label": "Crystal Sword (Legendary) — attack",
+      "label": "Crystal Sword (Legendary) \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1190,7 +1196,7 @@
     },
     {
       "id": "weapon-crystal-sword-unique",
-      "label": "Crystal Sword (Unique) — attack",
+      "label": "Crystal Sword (Unique) \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1199,7 +1205,7 @@
     },
     {
       "id": "weapon-demon-s-glee",
-      "label": "Demon's Glee — attack",
+      "label": "Demon's Glee \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1208,7 +1214,7 @@
     },
     {
       "id": "weapon-frostlight-crystal-sword",
-      "label": "Frostlight Crystal Sword — attack",
+      "label": "Frostlight Crystal Sword \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1217,7 +1223,7 @@
     },
     {
       "id": "weapon-fulgor-uniquelightningstrike",
-      "label": "Fulgor — lightning strike",
+      "label": "Fulgor \u2014 lightning strike",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1226,7 +1232,7 @@
     },
     {
       "id": "weapon-kuma-s-claw-unnamed-artifact-passive",
-      "label": "Kuma's Claw — unnamed artifact passive",
+      "label": "Kuma's Claw \u2014 unnamed artifact passive",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1235,7 +1241,7 @@
     },
     {
       "id": "weapon-kuma-s-fang-unnamed-artifact-passive",
-      "label": "Kuma's Fang — unnamed artifact passive",
+      "label": "Kuma's Fang \u2014 unnamed artifact passive",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1244,7 +1250,7 @@
     },
     {
       "id": "weapon-leviathan-artifacthitenemy",
-      "label": "Leviathan — hit enemy",
+      "label": "Leviathan \u2014 hit enemy",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1253,7 +1259,7 @@
     },
     {
       "id": "weapon-sovereign-s-ghostblade",
-      "label": "Sovereign's Ghostblade — attack",
+      "label": "Sovereign's Ghostblade \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1262,7 +1268,7 @@
     },
     {
       "id": "weapon-stinky-stick-poisonclouddamage",
-      "label": "Stinky Stick — poison cloud damage",
+      "label": "Stinky Stick \u2014 poison cloud damage",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1271,7 +1277,7 @@
     },
     {
       "id": "weapon-viola-unnamed-artifact-passive",
-      "label": "Viola — unnamed artifact passive",
+      "label": "Viola \u2014 unnamed artifact passive",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1280,7 +1286,7 @@
     },
     {
       "id": "weapon-void-blade",
-      "label": "Void Blade — attack",
+      "label": "Void Blade \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
@@ -1289,7 +1295,7 @@
     },
     {
       "id": "weapon-windreaver-artifactaddeffect",
-      "label": "Windreaver — add effect",
+      "label": "Windreaver \u2014 add effect",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",

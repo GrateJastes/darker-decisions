@@ -47,6 +47,12 @@ export const gameDataSchema = z.object({
     damageReductionRaised: z.number(),
     penetration: z.number(),
   }),
+  perks: z.object({
+    defenseMastery: z.object({
+      itemArmorRatingBonus: z.number(),
+      maxPhysicalDamageReduction: z.number(),
+    }),
+  }),
   sources: z.array(damageSourceSchema).min(1),
   targets: z.array(targetSchema).min(1),
 });
