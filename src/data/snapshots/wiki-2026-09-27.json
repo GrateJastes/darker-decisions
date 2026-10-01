@@ -1,0 +1,1326 @@
+{
+  "snapshot": {
+    "id": "wiki-2026-09-27",
+    "retrieved": "2026-10-02",
+    "source": "https://darkanddarker.wiki.spellsandguns.com",
+    "revisions": {
+      "Template:Stats Data": 67876,
+      "Damage": 67773,
+      "Template:Ability Data": 68832,
+      "Data:Weapon.json": 68847
+    }
+  },
+  "curves": {
+    "armorRatingToPdr": [
+      [-300, -6.148],
+      [-12, -0.388],
+      [-4, -0.268],
+      [6, -0.148],
+      [12, -0.07],
+      [20, 0.042],
+      [75, 0.1245],
+      [95, 0.1555],
+      [115, 0.1855],
+      [135, 0.2145],
+      [155, 0.2425],
+      [175, 0.2695],
+      [195, 0.2955],
+      [215, 0.3205],
+      [235, 0.3445],
+      [255, 0.3675],
+      [275, 0.3895],
+      [295, 0.4105],
+      [315, 0.4305],
+      [335, 0.4495],
+      [355, 0.4675],
+      [375, 0.4845],
+      [395, 0.5005],
+      [415, 0.5155],
+      [435, 0.5295],
+      [455, 0.5425],
+      [475, 0.5545],
+      [495, 0.5655],
+      [600, 0.618]
+    ],
+    "magicResistanceToMdr": [
+      [-300, -5.95],
+      [-15, -0.25],
+      [8, -0.02],
+      [18, 0.03],
+      [33, 0.09],
+      [53, 0.15],
+      [85, 0.23],
+      [280, 0.62],
+      [340, 0.71],
+      [430, 0.8],
+      [500, 0.835]
+    ],
+    "willToMagicResistance": [
+      [0, -20],
+      [5, 0],
+      [15, 30],
+      [33, 102],
+      [48, 147],
+      [58, 167],
+      [100, 209]
+    ],
+    "powerToPowerBonus": [
+      [0, -0.8],
+      [5, -0.3],
+      [7, -0.2],
+      [11, -0.08],
+      [15, 0],
+      [50, 0.35],
+      [60, 0.4],
+      [100, 0.5]
+    ]
+  },
+  "caps": {
+    "damageReduction": 0.65,
+    "damageReductionRaised": 0.75,
+    "penetration": 1
+  },
+  "sources": [
+    {
+      "id": "bard-dinofdarkness-tier-1",
+      "label": "Din of Darkness tier 1",
+      "group": "Bard",
+      "kind": "music",
+      "school": "magical",
+      "baseDamage": 1,
+      "scaling": 0.16
+    },
+    {
+      "id": "bard-dinofdarkness-tier-2",
+      "label": "Din of Darkness tier 2",
+      "group": "Bard",
+      "kind": "music",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.33
+    },
+    {
+      "id": "bard-dinofdarkness-tier-3",
+      "label": "Din of Darkness tier 3",
+      "group": "Bard",
+      "kind": "music",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "cleric-sacredflame",
+      "label": "Sacred Flame",
+      "group": "Cleric",
+      "kind": "perk",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 0.25
+    },
+    {
+      "id": "cleric-holypurification",
+      "label": "Holy Purification",
+      "group": "Cleric",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 100,
+      "scaling": 1
+    },
+    {
+      "id": "cleric-judgement",
+      "label": "Judgement",
+      "group": "Cleric",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "cleric-smite",
+      "label": "Smite",
+      "group": "Cleric",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 1
+    },
+    {
+      "id": "cleric-earthquake",
+      "label": "Earthquake",
+      "group": "Cleric",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 7,
+      "scaling": 0.5
+    },
+    {
+      "id": "cleric-holylight",
+      "label": "Holy Light",
+      "group": "Cleric",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 100,
+      "scaling": 0.8
+    },
+    {
+      "id": "cleric-holystrike",
+      "label": "Holy Strike",
+      "group": "Cleric",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "cleric-locustswarm",
+      "label": "Locust Swarm",
+      "group": "Cleric",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 13,
+      "scaling": 1
+    },
+    {
+      "id": "cleric-sanctuary",
+      "label": "Sanctuary",
+      "group": "Cleric",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 14,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-lightningmastery",
+      "label": "Lightning Mastery",
+      "group": "Sorcerer",
+      "kind": "perk",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0
+    },
+    {
+      "id": "sorcerer-aquaprison",
+      "label": "Aquaprison",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-electricdash-hit",
+      "label": "Electric Dash — hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-electricdash-finalehit",
+      "label": "Electric Dash — finale hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-elementalbolt-hit",
+      "label": "Elemental Bolt — hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 50,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-elementalbolt-burning",
+      "label": "Elemental Bolt — burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-elementalbolt-burningfiremastery",
+      "label": "Elemental Bolt — burn (Fire Mastery)",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-eruption",
+      "label": "Eruption",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-firearrow-hit",
+      "label": "Fire Arrow — hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-firearrow-burning",
+      "label": "Fire Arrow — burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-firearrow-burningfiremastery",
+      "label": "Fire Arrow — burn (Fire Mastery)",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-fireorb-hit",
+      "label": "Fire Orb — hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 45,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-fireorb-hitradius",
+      "label": "Fire Orb — hit radius",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-fireorb-radius",
+      "label": "Fire Orb — radius",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-fireorb-burning",
+      "label": "Fire Orb — burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-fireorb-burningfiremastery",
+      "label": "Fire Orb — burn (Fire Mastery)",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-flamefrostspear-hitfiredamage",
+      "label": "Flamefrost Spear — hit fire",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 35,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-flamefrostspear-hiticedamage",
+      "label": "Flamefrost Spear — hit ice",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 35,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-flamefrostspear-burning",
+      "label": "Flamefrost Spear — burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-flamefrostspear-burningfiremastery",
+      "label": "Flamefrost Spear — burn (Fire Mastery)",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-flamestrike-hit",
+      "label": "Flamestrike — hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-flamestrike-burning",
+      "label": "Flamestrike — burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-flamestrike-burningfiremastery",
+      "label": "Flamestrike — burn (Fire Mastery)",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-flamethrower-hit",
+      "label": "Flamethrower — hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-flamethrower-burning",
+      "label": "Flamethrower — burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-flamethrower-burningfiremastery",
+      "label": "Flamethrower — burn (Fire Mastery)",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-frostbreath",
+      "label": "Frost Breath",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-frostlightning-lightninghit",
+      "label": "Frost Lightning — lightning hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-frostlightning-icehit",
+      "label": "Frost Lightning — ice hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-glaciate",
+      "label": "Glaciate",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-icespear",
+      "label": "Ice Spear",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-lightningbolt",
+      "label": "Lightning Bolt",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 7,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-lightningsphere",
+      "label": "Lightning Sphere",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-lightningstorm",
+      "label": "Lightning Storm",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 0.75
+    },
+    {
+      "id": "sorcerer-lightningvortex",
+      "label": "Lightning Vortex",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-plasmablast-hit",
+      "label": "Plasma Blast — hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 50,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-plasmablast-burning",
+      "label": "Plasma Blast — burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-summonlavaelemental-lavaelementalburningradius",
+      "label": "Summon Lava Elemental — lava elemental burn radius",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-summonlavaelemental-lavaelementalburning",
+      "label": "Summon Lava Elemental — lava elemental burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-summonlavaelemental-lavaelementalburningfiremastery",
+      "label": "Summon Lava Elemental — lava elemental burn (Fire Mastery)",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-thornofearth",
+      "label": "Thorn of Earth",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-vortex",
+      "label": "Vortex",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-walloffire-hit",
+      "label": "Wall of Fire — hit",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-walloffire-aura",
+      "label": "Wall of Fire — aura",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-walloffire-burning",
+      "label": "Wall of Fire — burn",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-walloffire-burningfiremastery",
+      "label": "Wall of Fire — burn (Fire Mastery)",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "sorcerer-waterbolt",
+      "label": "Water Bolt",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-watercannon",
+      "label": "Watercannon",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "sorcerer-windblast",
+      "label": "Wind Blast",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "rogue-poisonedweapon",
+      "label": "Poisoned Weapon",
+      "group": "Rogue",
+      "kind": "perk",
+      "school": "magical",
+      "baseDamage": 4,
+      "scaling": 0.5
+    },
+    {
+      "id": "druid-dreamfire",
+      "label": "Dream Fire",
+      "group": "Druid",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "druid-orbofnature",
+      "label": "Orb of Nature",
+      "group": "Druid",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-darkreflection",
+      "label": "Dark Reflection",
+      "group": "Warlock",
+      "kind": "perk",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 0.25
+    },
+    {
+      "id": "warlock-bloodpact",
+      "label": "Blood Pact",
+      "group": "Warlock",
+      "kind": "shapeshift",
+      "school": "magical",
+      "baseDamage": 2,
+      "scaling": 0.25
+    },
+    {
+      "id": "warlock-bloodstainedblade",
+      "label": "Bloodstained Blade",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0
+    },
+    {
+      "id": "warlock-boltofdarkness",
+      "label": "Bolt of Darkness",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-boltofdarkness-hit",
+      "label": "Bolt of Darkness — hit",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-boltofdarkness-darkarrowhit",
+      "label": "Bolt of Darkness — dark arrow hit",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-curseofpain-hit",
+      "label": "Curse of Pain — hit",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-curseofpain-hitcursemastery",
+      "label": "Curse of Pain — hit (Curse Mastery)",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-curseofpain-dot",
+      "label": "Curse of Pain — DoT",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 0.5
+    },
+    {
+      "id": "warlock-curseofpain-dotcursemastery",
+      "label": "Curse of Pain — DoT (Curse Mastery)",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 0.5
+    },
+    {
+      "id": "warlock-evileye",
+      "label": "Evil Eye",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 100,
+      "scaling": 0
+    },
+    {
+      "id": "warlock-flamewalker",
+      "label": "Flame Walker",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-hellfire",
+      "label": "Hellfire",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 60,
+      "scaling": 0.5
+    },
+    {
+      "id": "warlock-lifedrain",
+      "label": "Life Drain",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.25
+    },
+    {
+      "id": "warlock-rayofdarkness",
+      "label": "Ray of Darkness",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 12,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-spellpredation",
+      "label": "Spell Predation",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-summonhydra",
+      "label": "Summon Hydra",
+      "group": "Warlock",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-blowofcorruption",
+      "label": "Blow of Corruption",
+      "group": "Warlock",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 12,
+      "scaling": 1
+    },
+    {
+      "id": "warlock-exploitationstrike",
+      "label": "Exploitation Strike",
+      "group": "Warlock",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-arcaneinfusion-damage",
+      "label": "Arcane Infusion",
+      "group": "Wizard",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-arcaneinfusion-damagesplash",
+      "label": "Arcane Infusion — splash",
+      "group": "Wizard",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-chainlightning-hit",
+      "label": "Chain Lightning — hit",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-chainlightning-bounce1",
+      "label": "Chain Lightning — bounce 1",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-chainlightning-bounce2",
+      "label": "Chain Lightning — bounce 2",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-chainlightning-bounce3",
+      "label": "Chain Lightning — bounce 3",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-explosion-hit",
+      "label": "Explosion — hit",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-explosion-burning",
+      "label": "Explosion — burn",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-explosion-burningfiremastery",
+      "label": "Explosion — burn (Fire Mastery)",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 6,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-fireball-hit",
+      "label": "Fireball — hit",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-fireball-aoe",
+      "label": "Fireball — AoE",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-fireball-dot",
+      "label": "Fireball — DoT",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-fireball-dotfiremastery",
+      "label": "Fireball — DoT (Fire Mastery)",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 6,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-frostwave",
+      "label": "Frost Wave",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-icebolt",
+      "label": "Ice Bolt",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-ignite-hit",
+      "label": "Ignite — hit",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-ignite-burning",
+      "label": "Ignite — burn",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 1,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-ignite-burningfiremastery",
+      "label": "Ignite — burn (Fire Mastery)",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-lightningstrike",
+      "label": "Lightning Strike",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-magicmissile",
+      "label": "Magic Missile",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-meteorstrike-hit",
+      "label": "Meteor Strike — hit",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-meteorstrike-burning",
+      "label": "Meteor Strike — burn",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-meteorstrike-burningfiremastery",
+      "label": "Meteor Strike — burn (Fire Mastery)",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 6,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-zap-hit",
+      "label": "Zap — hit",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "wizard-zap-dot",
+      "label": "Zap — DoT",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 1,
+      "scaling": 0.5
+    },
+    {
+      "id": "wizard-zap-dotfiremastery",
+      "label": "Zap — DoT (Fire Mastery)",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "ranger-explosiveshot-hit",
+      "label": "Explosive Shot — hit",
+      "group": "Ranger",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "ranger-explosiveshot-burn",
+      "label": "Explosive Shot — burn",
+      "group": "Ranger",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 3,
+      "scaling": 0.5
+    },
+    {
+      "id": "ranger-purgeshot",
+      "label": "Purge Shot",
+      "group": "Ranger",
+      "kind": "skill",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-abyssal-trident-artifactaddeffect",
+      "label": "Abyssal Trident — add effect",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-catice",
+      "label": "Catice — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 21,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-catice-uniqueadditionalhit",
+      "label": "Catice — additional hit",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-cinder-additionaldamage",
+      "label": "Cinder — additional damage",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 12,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-cinder-burn",
+      "label": "Cinder — burn",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 27,
+      "scaling": 0.5
+    },
+    {
+      "id": "weapon-crystal-sword-poor",
+      "label": "Crystal Sword (Poor) — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 14,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-crystal-sword-common",
+      "label": "Crystal Sword (Common) — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-crystal-sword-uncommon",
+      "label": "Crystal Sword (Uncommon) — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 16,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-crystal-sword-rare",
+      "label": "Crystal Sword (Rare) — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 17,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-crystal-sword-epic",
+      "label": "Crystal Sword (Epic) — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-crystal-sword-legendary",
+      "label": "Crystal Sword (Legendary) — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 19,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-crystal-sword-unique",
+      "label": "Crystal Sword (Unique) — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-demon-s-glee",
+      "label": "Demon's Glee — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 1,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-frostlight-crystal-sword",
+      "label": "Frostlight Crystal Sword — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-fulgor-uniquelightningstrike",
+      "label": "Fulgor — lightning strike",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-kuma-s-claw-unnamed-artifact-passive",
+      "label": "Kuma's Claw — unnamed artifact passive",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-kuma-s-fang-unnamed-artifact-passive",
+      "label": "Kuma's Fang — unnamed artifact passive",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-leviathan-artifacthitenemy",
+      "label": "Leviathan — hit enemy",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-sovereign-s-ghostblade",
+      "label": "Sovereign's Ghostblade — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-stinky-stick-poisonclouddamage",
+      "label": "Stinky Stick — poison cloud damage",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-viola-unnamed-artifact-passive",
+      "label": "Viola — unnamed artifact passive",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-void-blade",
+      "label": "Void Blade — attack",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 2,
+      "scaling": 1
+    },
+    {
+      "id": "weapon-windreaver-artifactaddeffect",
+      "label": "Windreaver — add effect",
+      "group": "Weapons",
+      "kind": "weapon",
+      "school": "magical",
+      "baseDamage": 15,
+      "scaling": 1
+    }
+  ],
+  "targets": [
+    {
+      "id": "dr-10",
+      "label": "10% DR",
+      "physicalDamageReduction": 0.1,
+      "magicalDamageReduction": 0.1
+    },
+    {
+      "id": "dr-20",
+      "label": "20% DR",
+      "physicalDamageReduction": 0.2,
+      "magicalDamageReduction": 0.2
+    },
+    {
+      "id": "dr-35",
+      "label": "35% DR",
+      "physicalDamageReduction": 0.35,
+      "magicalDamageReduction": 0.35
+    },
+    {
+      "id": "dr-50",
+      "label": "50% DR",
+      "physicalDamageReduction": 0.5,
+      "magicalDamageReduction": 0.5
+    }
+  ]
+}
