@@ -22,6 +22,8 @@ TypeScript is pinned to `~6.0` because `typescript-eslint` doesn't support TS 7 
 
 Every push to `master` deploys to https://darker-decisions.com through `.github/workflows/deploy.yml`, which runs `scripts/deploy.sh`: check, build, rsync `dist/` to the server, then confirm the live page serves the new bundle. The server's site config is `deploy/Caddyfile`.
 
+Chat apps and search engines don't run JavaScript, so the build also writes `dist/<slug>/index.html` for every calculator, with its own title, description and link-preview tags (`scripts/page-meta.ts`). Caddy serves that file before falling back to `index.html`. `deploy/Caddyfile` is not synced by the deploy; copy it to the server and reload Caddy when it changes.
+
 ## Adding a calculator
 
 1. Write `src/models/<id>/model.ts` with `defineModel({ params, compute })` and give it tests. The tests should pin the verdict.
