@@ -26,12 +26,14 @@ export interface ChartSeries {
   points: readonly { x: number; y: number }[];
   emphasis: "primary" | "secondary";
   dashed?: boolean | undefined;
+  legend?: string | false | undefined;
 }
 
 export interface ChartBand {
   id: string;
   label: string;
   points: readonly { x: number; lo: number; hi: number }[];
+  legend?: string | false | undefined;
 }
 
 export type ChartMarker =
@@ -80,23 +82,36 @@ interface LegendItem {
   color: string;
   kind: "line" | "band";
   dashed?: boolean | undefined;
+  hidden: boolean;
 }
 
 function legendItems(series: readonly ChartSeries[], bands: readonly ChartBand[]): LegendItem[] {
   let next = 0;
-  const pick = () => secondaryColors[next++ % secondaryColors.length] ?? "var(--color-ink-dim)";
+  const colorByKey = new Map<string, string>();
+  const colorFor = (key: string) => {
+    const known = colorByKey.get(key);
+    if (known) return known;
+    const picked = secondaryColors[next++ % secondaryColors.length] ?? "var(--color-ink-dim)";
+    colorByKey.set(key, picked);
+    return picked;
+  };
+  const item = (s: ChartSeries | ChartBand, kind: LegendItem["kind"], color: (key: string) => string) => {
+    const label = s.legend || s.label;
+    return {
+      id: s.id,
+      label,
+      color: color(s.legend === false ? `#${s.id}` : label),
+      kind,
+      dashed: "dashed" in s ? s.dashed : undefined,
+      hidden: s.legend === false,
+    };
+  };
   const primary = series.filter((s) => s.emphasis === "primary");
   const secondary = series.filter((s) => s.emphasis === "secondary");
   return [
-    ...primary.map((s) => ({ id: s.id, label: s.label, color: PRIMARY, kind: "line" as const })),
-    ...bands.map((b) => ({ id: b.id, label: b.label, color: pick(), kind: "band" as const })),
-    ...secondary.map((s) => ({
-      id: s.id,
-      label: s.label,
-      color: pick(),
-      kind: "line" as const,
-      dashed: s.dashed,
-    })),
+    ...primary.map((s) => item(s, "line", () => PRIMARY)),
+    ...bands.map((b) => item(b, "band", colorFor)),
+    ...secondary.map((s) => item(s, "line", colorFor)),
   ];
 }
 
@@ -267,10 +282,13 @@ export function ChartView({ x, y, series, bands = [], markers, height = 340 }: C
 }
 
 function Legend({ items }: { items: readonly LegendItem[] }) {
-  if (items.length < 2) return null;
+  const shown = items
+    .filter((item) => !item.hidden)
+    .filter((item, i, all) => all.findIndex((other) => other.label === item.label) === i);
+  if (shown.length < 2) return null;
   return (
     <ul className="m-0 flex list-none flex-wrap justify-center gap-x-4 gap-y-1 p-0 text-xs text-ink-dim">
-      {items.map((item) => (
+      {shown.map((item) => (
         <li key={item.id} className="flex items-center gap-1.5">
           <span
             className={item.kind === "band" ? "inline-block h-2.5 w-4 opacity-60" : "inline-block h-0.5 w-4"}

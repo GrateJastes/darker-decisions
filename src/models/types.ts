@@ -89,12 +89,14 @@ export interface SeriesSpec {
   points: readonly { x: number; y: number }[];
   emphasis: "primary" | "secondary";
   dashed?: boolean;
+  legend?: string | false;
 }
 
 export interface BandSpec {
   id: string;
   label: string;
   points: readonly { x: number; lo: number; hi: number }[];
+  legend?: string | false;
 }
 
 export type MarkerSpec =

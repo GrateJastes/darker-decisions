@@ -188,6 +188,7 @@ export const arVsPdr = defineModel({
       { x, y: top },
     ];
 
+    const otherLegend = otherName.replace(/^./, (c) => c.toUpperCase());
     const series: SeriesSpec[] = [
       ...(inDomain(xNow)
         ? [
@@ -204,6 +205,7 @@ export const arVsPdr = defineModel({
         label: `${Math.round(current.cap * 100)}% PDR cap`,
         points: xs.filter((x) => room(x) < Y_MAX).map((x) => ({ x, y: room(x) })),
         emphasis: "secondary",
+        legend: false,
       },
       ...(inDomain(xOther)
         ? [
@@ -213,6 +215,7 @@ export const arVsPdr = defineModel({
               points: vertical(xOther, roomOther(xOther)),
               emphasis: "secondary" as const,
               dashed: true,
+              legend: otherLegend,
             },
           ]
         : []),
@@ -222,6 +225,7 @@ export const arVsPdr = defineModel({
         points: grid.filter((x) => roomOther(x) < Y_MAX).map((x) => ({ x, y: roomOther(x) })),
         emphasis: "secondary",
         dashed: true,
+        legend: otherLegend,
       },
     ];
 
@@ -263,14 +267,21 @@ export const arVsPdr = defineModel({
             {
               id: "ar-zone",
               label: "Armor rating is better",
+              legend: false,
               points: xs.map((x) => ({ x, lo: 0, hi: arSide(x) ? room(x) : 0 })),
             },
             {
               id: "pdr-zone",
               label: "PDR is better",
+              legend: false,
               points: xs.map((x) => ({ x, lo: 0, hi: arSide(x) ? 0 : room(x) })),
             },
-            { id: "cap-zone", label: "Capped", points: xs.map((x) => ({ x, lo: room(x), hi: Y_MAX })) },
+            {
+              id: "cap-zone",
+              label: "Capped",
+              points: xs.map((x) => ({ x, lo: room(x), hi: Y_MAX })),
+              legend: false,
+            },
           ],
           markers: [...labels, { kind: "point", x: Math.min(p.arGear, xMax), y: Math.min(p.pdr, Y_MAX) }],
         },
