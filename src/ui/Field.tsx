@@ -23,7 +23,7 @@ export function Field({
           ))}
       </div>
       {children}
-      {hint && <div className="mt-1 text-xs text-ink-faint italic">{hint}</div>}
+      {hint && <div className="mt-1 text-xs text-ink-muted italic">{hint}</div>}
     </div>
   );
 }

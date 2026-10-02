@@ -71,7 +71,7 @@ const axisLabel = {
   letterSpacing: "0.15em",
 };
 const markerLabel = (value: string, position: "insideTopLeft" | "insideTopRight" | "insideTop") => ({
-  label: { value, position, fill: "var(--color-ink-faint)", fontSize: 11 },
+  label: { value, position, fill: "var(--color-ink-muted)", fontSize: 11 },
 });
 
 interface LegendItem {

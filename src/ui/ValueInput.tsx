@@ -44,7 +44,7 @@ export function ValueInput({ label, value, min, max, step, unit, onChange }: Val
       inputMode="decimal"
       aria-label={`${label}, exact value`}
       title="Click to type a value"
-      className="w-[8ch] cursor-text border-0 border-b border-dotted border-transparent bg-transparent p-0 text-right font-display text-sm font-bold tracking-wide text-accent-hot placeholder:text-ink-faint hover:border-ink-faint focus:border-accent focus:outline-none"
+      className="w-[8ch] cursor-text border-0 border-b border-dotted border-transparent bg-transparent p-0 text-right font-display text-sm font-bold tracking-wide text-accent-hot placeholder:text-ink-muted hover:border-ink-faint focus:border-accent focus:outline-none"
       value={draft ?? formatValue(value, unit)}
       placeholder={editableText(value, unit)}
       onFocus={() => setDraft("")}

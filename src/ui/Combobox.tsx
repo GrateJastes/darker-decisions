@@ -111,7 +111,7 @@ export function Combobox({ label, value, options, placeholder = "Custom", hint, 
             className="absolute z-20 mt-1 max-h-80 w-full overflow-auto border border-border-hot bg-bg p-0 shadow-lg"
           >
             {filtered.length === 0 && (
-              <li className="list-none px-2 py-1.5 text-ink-faint italic">No matches</li>
+              <li className="list-none px-2 py-1.5 text-ink-muted italic">No matches</li>
             )}
             {filtered.map((o, i) => (
               <li key={o.value} className="list-none">
