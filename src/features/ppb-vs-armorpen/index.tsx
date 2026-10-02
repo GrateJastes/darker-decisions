@@ -6,5 +6,6 @@ export const ppbVsArmorpenFeature: FeatureEntry = {
   slug: "ppb-vs-armorpen",
   title: ppbVsArmorpen.title,
   blurb: ppbVsArmorpen.question,
+  category: "offense",
   View: () => <GenericCalculatorView model={ppbVsArmorpen} />,
 };

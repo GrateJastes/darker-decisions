@@ -6,5 +6,6 @@ export const arVsPdrFeature: FeatureEntry = {
   slug: "ar-vs-pdr",
   title: arVsPdr.title,
   blurb: arVsPdr.question,
+  category: "defense",
   View: () => <GenericCalculatorView model={arVsPdr} />,
 };

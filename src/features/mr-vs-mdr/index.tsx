@@ -6,5 +6,6 @@ export const mrVsMdrFeature: FeatureEntry = {
   slug: "mr-vs-mdr",
   title: mrVsMdr.title,
   blurb: mrVsMdr.question,
+  category: "defense",
   View: () => <GenericCalculatorView model={mrVsMdr} />,
 };

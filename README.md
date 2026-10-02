@@ -25,5 +25,5 @@ Every push to `master` deploys to https://darker-decisions.com through `.github/
 ## Adding a calculator
 
 1. Write `src/models/<id>/model.ts` with `defineModel({ params, compute })` and give it tests. The tests should pin the verdict.
-2. Write `src/features/<id>/index.tsx`, which exports a `FeatureEntry`. Start with `GenericCalculatorView`.
+2. Write `src/features/<id>/index.tsx`, which exports a `FeatureEntry`. Start with `GenericCalculatorView`. Its `category` decides which landing-page section it appears in (see `categories` in `src/app/registry.ts`).
 3. Add the entry to `src/app/registry.ts`.

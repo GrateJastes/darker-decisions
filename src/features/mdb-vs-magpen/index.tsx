@@ -6,5 +6,6 @@ export const mdbVsMagpenFeature: FeatureEntry = {
   slug: "mdb-vs-magpen",
   title: mdbVsMagpen.title,
   blurb: mdbVsMagpen.question,
+  category: "offense",
   View: () => <GenericCalculatorView model={mdbVsMagpen} />,
 };

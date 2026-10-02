@@ -153,7 +153,7 @@ Theme tokens use Tailwind v4 `@theme static`, so every token is emitted as a CSS
 
 ```
 src/features/<calc>/
-  index.tsx          FeatureEntry: { slug, title, blurb, View }
+  index.tsx          FeatureEntry: { slug, title, blurb, category, View }
   View.tsx           optional custom layout, written once the generic one isn't enough
 ```
 

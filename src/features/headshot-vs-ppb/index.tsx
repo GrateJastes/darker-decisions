@@ -6,5 +6,6 @@ export const headshotVsPpbFeature: FeatureEntry = {
   slug: "headshot-vs-ppb",
   title: headshotVsPpb.title,
   blurb: headshotVsPpb.question,
+  category: "offense",
   View: () => <GenericCalculatorView model={headshotVsPpb} />,
 };
