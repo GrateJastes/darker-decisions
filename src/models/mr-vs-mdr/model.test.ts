@@ -75,6 +75,6 @@ describe("mr-vs-mdr", () => {
 
   it("keeps the same number of verdict lines in every state", () => {
     const states = [p, { ...p, iw: true }, { ...p, mr: 400 }, { ...p, will: 100, iw: true, mr: 400 }];
-    for (const q of states) expect(mrVsMdr.compute(q, data).verdict.details).toHaveLength(3);
+    for (const q of states) expect(mrVsMdr.compute(q, data).verdict.details).toHaveLength(2);
   });
 });

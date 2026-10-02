@@ -138,7 +138,7 @@ export const mrVsMdr = defineModel({
     const fromWill = mrFromWill(p.will, data);
     const total = totalMr(p, current, data);
     const totalOther = totalMr(p, other, data);
-    const { tie, win } = switchMagicResistance(data);
+    const { tie } = switchMagicResistance(data);
     const now = nextRoll(total, current, p.mdr, data);
     const then = nextRoll(totalOther, other, p.mdr, data);
     const capAt = capMr(current.cap, p.mdr, data);
@@ -183,11 +183,6 @@ export const mrVsMdr = defineModel({
             template: `${otherPrefix} Iron Will, the same build ({total} MR) should roll {stat}.`,
             values: { total: rating(totalOther), stat: then.stat },
           },
-      {
-        template:
-          "Compared as 10 MR = 1% MDR: MR wins below {tie} MR and ties up to {win} — both caps come before MDR could win.",
-        values: { tie: rating(tie), win: rating(win) },
-      },
     ];
 
     const xMin = Math.min(0, Math.floor(total / X_STEP) * X_STEP);
