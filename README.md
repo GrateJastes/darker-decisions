@@ -14,17 +14,13 @@ pnpm dev
 pnpm check
 ```
 
-`pnpm check` runs the typecheck, ESLint, the `dependency-cruiser` layer rules and the Vitest suite. The Docker build runs it too, so a broken tree never produces an image.
+`pnpm check` runs the typecheck, ESLint, the `dependency-cruiser` layer rules and the Vitest suite. The deploy runs it too, so a broken tree never goes live.
 
 TypeScript is pinned to `~6.0` because `typescript-eslint` doesn't support TS 7 yet.
 
 ## Deploy
 
-```sh
-docker compose up -d --build
-```
-
-The site is served on `127.0.0.1:${PORT:-8080}`. It's meant to sit behind the host's reverse proxy, which handles TLS. nginx falls back to `index.html` for client-side routes, and hashed assets under `/assets/` are cached as immutable.
+Every push to `master` deploys to https://darker-decisions.com through `.github/workflows/deploy.yml`, which runs `scripts/deploy.sh`: check, build, rsync `dist/` to the server, then confirm the live page serves the new bundle. The server's site config is `deploy/Caddyfile`.
 
 ## Adding a calculator
 

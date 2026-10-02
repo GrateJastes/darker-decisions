@@ -39,7 +39,7 @@ Later candidates: Vigor/Max HP% vs PDR (effective HP), action speed breakpoints,
 - **There is no "budget" abstraction.** Roll values depend on the gear slot, and crafted items with fixed bonus rolls and perks make any cost model misleading. Calculators illustrate **statements** instead, for example "below 80% headshots, more than 170% HS damage is wasted" or "after 40% MDB, magpen beats MDB against most targets". The user moves a driving knob and sees the dependent values and the crossover or break-even point.
 - **Prefer several small, specific, illustrative calculators over one configurable mega-tool.** Presets (typical targets and spells/weapons) do the work that configurability would otherwise do.
 - **Stack:** Vite + React + TS + Recharts + Tailwind, as proposed.
-- **Hosting:** a Docker image (nginx serving the static build) on the Hetzner VM.
+- **Hosting:** the static build served by Caddy, deployed from CI on every push to `master`.
 - **Ship one calculator first.** Each calculator gets its own detailed pass on mechanics and UX when we get to it.
 - **Data source of truth:** hand-curated, patch-versioned JSON, plus a verifier script that diffs it against the wiki's MediaWiki API (see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)).
 - **First calculator:** MDB vs magpen (2026-10-01). Built on the generic view; its mechanics and UX get the detailed pass next.
@@ -48,7 +48,7 @@ Code structure: see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Phases
 
-0. **Scaffold.** Set up Vite/TS/Tailwind/Vitest/ESLint/dependency-cruiser, the Dockerfile and compose file, the `ui` primitives and theme from the PoC, the generic calculator view, URL state, and an empty registry.
+0. **Scaffold.** Set up Vite/TS/Tailwind/Vitest/ESLint/dependency-cruiser, the `ui` primitives and theme from the PoC, the generic calculator view, URL state, and an empty registry.
 1. **Engine + data.** Implement the curves, staged damage formula, analysis helpers and the first patch JSON, with tests.
 2. **First calculator.** Model, then the generic view, then a custom view if it's warranted.
 3. Further calculators, one at a time.

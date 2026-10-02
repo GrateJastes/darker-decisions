@@ -182,6 +182,6 @@ src/app/
 
 ## Deployment
 
-- A multi-stage `Dockerfile`: `node:22-alpine` builds the app and `nginx:alpine` serves `dist/`, with SPA fallback and long cache headers for hashed assets.
-- `compose.yaml` exposes a single port so the container can sit behind whatever reverse proxy and TLS already runs on the VM.
+- `scripts/deploy.sh`, run by `.github/workflows/deploy.yml` on every push to `master`, checks, builds and rsyncs `dist/` to the server.
+- `deploy/Caddyfile` serves it with SPA fallback and long cache headers for hashed assets.
 - The site is fully static, with no runtime config, secrets or backend.
