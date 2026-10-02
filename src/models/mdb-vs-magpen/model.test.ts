@@ -1,17 +1,18 @@
 import { describe, expect, it } from "vitest";
 import { currentData } from "@data/index";
 import { activePreset, defaults, layout, presetPatch } from "../types";
-import { gains, mdbVsMagpen, penFromStartAt, switchPoint } from "./model";
+import { gains, penFromStartAt, switchPoint } from "../power-vs-pen/model";
+import { mdbVsMagpen } from "./model";
 
 const data = currentData;
 const p = defaults(mdbVsMagpen.params);
 
 describe("mdb-vs-magpen", () => {
   it("matches the closed-form switch point (1-for-1)", () => {
-    for (const mdr of [0.2, 0.3, 0.45]) {
-      const expected = Math.max(0, (1 - 2 * mdr) / mdr);
+    for (const dr of [0.2, 0.3, 0.45]) {
+      const expected = Math.max(0, (1 - 2 * dr) / dr);
       expect(
-        switchPoint({ ...p, base: 30, scaling: 1, gear: 0, add: 0, pen: 0, wpen: 0 }, mdr, data),
+        switchPoint({ ...p, base: 30, scaling: 1, gear: 0, add: 0, pen: 0, wpen: 0 }, dr, data),
       ).toBeCloseTo(expected, 6);
     }
   });
@@ -22,7 +23,7 @@ describe("mdb-vs-magpen", () => {
   });
 
   it("extends the y axis below zero only for negative MPB", () => {
-    const yDomain = (mpb: number) => mdbVsMagpen.compute({ ...p, mpb }, data).charts[0]!.y.domain;
+    const yDomain = (pb: number) => mdbVsMagpen.compute({ ...p, pb }, data).charts[0]!.y.domain;
     expect(yDomain(0.3)).toEqual([0, 1.5]);
     expect(yDomain(-0.1)).toEqual([-0.25, 1.5]);
     expect(yDomain(-0.5)).toEqual([-0.5, 1.5]);
@@ -80,14 +81,40 @@ describe("mdb-vs-magpen", () => {
   });
 
   it("switch curve stays inside the chart", () => {
-    const [chart] = mdbVsMagpen.compute({ ...p, mdr: 0.2 }, data).charts;
+    const [chart] = mdbVsMagpen.compute({ ...p, dr: 0.2 }, data).charts;
     for (const pt of chart!.series[0]!.points) expect(pt.y).toBeLessThanOrEqual(1.5 + 1e-9);
     expect(chart!.series[0]!.points[0]!.y).toBeCloseTo(1.5, 6);
   });
 
   it("words the headline around pen you already have", () => {
     const headline = (q: typeof p) => mdbVsMagpen.compute(q, data).verdict.headline.template;
-    expect(headline({ ...p, mdr: 0.35, pen: 0, wpen: 0 })).toContain("add magic pen once you reach");
-    expect(headline({ ...p, mdr: 0.35, pen: 0.05, wpen: 0.1 })).toContain("with your {pen} magic pen");
+    expect(headline({ ...p, dr: 0.35, pen: 0, wpen: 0 })).toContain("add magic pen once you reach");
+    expect(headline({ ...p, dr: 0.35, pen: 0.05, wpen: 0.1 })).toContain("with your {pen} magic pen");
+  });
+});
+
+describe("mdb-vs-magpen weapon picker", () => {
+  const weapons = mdbVsMagpen.presets!.find((g) => g.id === "weapon")!;
+  const pick = (id: string) => ({
+    ...p,
+    ...presetPatch(
+      weapons,
+      weapons.options.find((o) => o.value === id)!,
+    ),
+  });
+
+  it("starts with no weapon", () => {
+    expect(activePreset(weapons, p)).toBe("none");
+  });
+
+  it("fills in the weapon's magical damage and magic pen from the data", () => {
+    expect(pick("magic-staff-rare")).toMatchObject({ gear: 7, wpen: 0.15 });
+    expect(pick("spellbook-unique")).toMatchObject({ gear: 7, wpen: 0.05 });
+    expect(pick("crystal-ball-poor")).toMatchObject({ gear: 3, wpen: 0.1 });
+  });
+
+  it("remembers which of two identical weapons was picked", () => {
+    expect(activePreset(weapons, pick("tidal-crystal-ball-epic"))).toBe("tidal-crystal-ball-epic");
+    expect(activePreset(weapons, pick("mana-sphere-epic"))).toBe("mana-sphere-epic");
   });
 });
