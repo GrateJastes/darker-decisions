@@ -14,7 +14,6 @@ import {
 
 export const HS_PER_PPB = 2;
 const PPB_STEP = 0.01;
-const Y_MAX = 0.4;
 const GRID = 200;
 const MIN_LABEL_HEIGHT = 0.04;
 
@@ -109,7 +108,7 @@ const params = {
     kind: "number",
     label: "Headshot damage",
     min: 0,
-    max: Y_MAX,
+    max: currentData.hitLocation.headshotBonusCap,
     step: 0.005,
     default: 0,
     unit: "percent",
@@ -248,7 +247,6 @@ export const headshotVsPpb = defineModel({
     if (cap - clipped(ppbLabelX) >= MIN_LABEL_HEIGHT) {
       labels.push({ kind: "text", x: ppbLabelX, y: (clipped(ppbLabelX) + cap) / 2, text: "PPB FIRST" });
     }
-    labels.push({ kind: "text", x: 0.5, y: (cap + Y_MAX) / 2, text: "CAPPED" });
 
     return {
       verdict: { headline, details },
@@ -265,8 +263,8 @@ export const headshotVsPpb = defineModel({
           y: {
             label: "Your headshot damage",
             unit: "percent",
-            domain: [0, Y_MAX],
-            ticks: range(0, Y_MAX, 8),
+            domain: [0, cap],
+            ticks: range(0, cap, 6),
           },
           series: [{ id: "switch", label: "Switch point", points: visible, emphasis: "primary" }],
           bands: [
@@ -280,9 +278,8 @@ export const headshotVsPpb = defineModel({
               label: "PPB is better",
               points: grid.map((x) => ({ x, lo: clipped(x), hi: cap })),
             },
-            { id: "cap-zone", label: "Capped", points: grid.map((x) => ({ x, lo: cap, hi: Y_MAX })) },
           ],
-          markers: [...labels, { kind: "point", x: p.rate, y: Math.min(p.hsb, Y_MAX), label: "you" }],
+          markers: [...labels, { kind: "point", x: p.rate, y: p.hsb, label: "you" }],
         },
       ],
       readouts: [
