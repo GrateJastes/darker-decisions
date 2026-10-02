@@ -20,6 +20,16 @@ export const damageSourceSchema = z.object({
   school: damageSchool,
   baseDamage: z.number(),
   scaling: z.number().min(0),
+  penetration: z.number().min(0).optional(),
+});
+
+export const weaponSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  group: z.string(),
+  school: damageSchool,
+  gearDamage: z.number(),
+  penetration: z.number().min(0),
 });
 
 export const targetSchema = z.object({
@@ -47,18 +57,31 @@ export const gameDataSchema = z.object({
     damageReductionRaised: z.number(),
     penetration: z.number(),
   }),
+  hitLocation: z.object({
+    head: z.number(),
+    headshotBonusCap: z.number(),
+  }),
   perks: z.object({
     defenseMastery: z.object({
       itemArmorRatingBonus: z.number(),
       maxPhysicalDamageReduction: z.number(),
     }),
+    ironWill: z.object({
+      magicResistance: z.number(),
+      maxMagicalDamageReduction: z.number(),
+    }),
+    antimagic: z.object({
+      elementalDamageReduction: z.number(),
+    }),
   }),
   sources: z.array(damageSourceSchema).min(1),
+  weapons: z.array(weaponSchema),
   targets: z.array(targetSchema).min(1),
 });
 
 export type Curve = z.infer<typeof curveSchema>;
 export type DamageSchool = z.infer<typeof damageSchool>;
 export type DamageSource = z.infer<typeof damageSourceSchema>;
+export type Weapon = z.infer<typeof weaponSchema>;
 export type Target = z.infer<typeof targetSchema>;
 export type GameData = z.infer<typeof gameDataSchema>;

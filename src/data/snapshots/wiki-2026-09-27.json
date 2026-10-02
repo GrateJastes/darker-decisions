@@ -80,10 +80,21 @@
     "damageReductionRaised": 0.75,
     "penetration": 1
   },
+  "hitLocation": {
+    "head": 1.5,
+    "headshotBonusCap": 0.3
+  },
   "perks": {
     "defenseMastery": {
       "itemArmorRatingBonus": 0.15,
       "maxPhysicalDamageReduction": 0.75
+    },
+    "ironWill": {
+      "magicResistance": 75,
+      "maxMagicalDamageReduction": 0.75
+    },
+    "antimagic": {
+      "elementalDamageReduction": 0.2
     }
   },
   "sources": [
@@ -194,15 +205,6 @@
       "school": "magical",
       "baseDamage": 14,
       "scaling": 0.5
-    },
-    {
-      "id": "sorcerer-lightningmastery",
-      "label": "Lightning Mastery",
-      "group": "Sorcerer",
-      "kind": "perk",
-      "school": "magical",
-      "baseDamage": 5,
-      "scaling": 0
     },
     {
       "id": "sorcerer-aquaprison",
@@ -682,15 +684,6 @@
       "scaling": 0.25
     },
     {
-      "id": "warlock-bloodstainedblade",
-      "label": "Bloodstained Blade",
-      "group": "Warlock",
-      "kind": "spell",
-      "school": "magical",
-      "baseDamage": 3,
-      "scaling": 0
-    },
-    {
       "id": "warlock-boltofdarkness",
       "label": "Bolt of Darkness",
       "group": "Warlock",
@@ -752,15 +745,6 @@
       "school": "magical",
       "baseDamage": 20,
       "scaling": 0.5
-    },
-    {
-      "id": "warlock-evileye",
-      "label": "Evil Eye",
-      "group": "Warlock",
-      "kind": "spell",
-      "school": "magical",
-      "baseDamage": 100,
-      "scaling": 0
     },
     {
       "id": "warlock-flamewalker",
@@ -1096,12 +1080,444 @@
       "scaling": 1
     },
     {
+      "id": "physical-bard-piercingshrill-tier-1",
+      "label": "Piercing Shrill tier 1",
+      "group": "Bard",
+      "kind": "music",
+      "school": "physical",
+      "baseDamage": 15,
+      "scaling": 0.1
+    },
+    {
+      "id": "physical-bard-piercingshrill-tier-2",
+      "label": "Piercing Shrill tier 2",
+      "group": "Bard",
+      "kind": "music",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 0.3
+    },
+    {
+      "id": "physical-bard-piercingshrill-tier-3",
+      "label": "Piercing Shrill tier 3",
+      "group": "Bard",
+      "kind": "music",
+      "school": "physical",
+      "baseDamage": 25,
+      "scaling": 0.5
+    },
+    {
+      "id": "physical-barbarian-achillesstrike",
+      "label": "Achilles Strike",
+      "group": "Barbarian",
+      "kind": "skill",
+      "school": "physical",
+      "baseDamage": 1,
+      "scaling": 0.5
+    },
+    {
+      "id": "physical-fighter-pommelstrike",
+      "label": "Pommel Strike",
+      "group": "Fighter",
+      "kind": "skill",
+      "school": "physical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "physical-fighter-shieldslam",
+      "label": "Shield Slam",
+      "group": "Fighter",
+      "kind": "skill",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "physical-sorcerer-summonearthelemental",
+      "label": "Summon Earth Elemental",
+      "group": "Sorcerer",
+      "kind": "spell",
+      "school": "physical",
+      "baseDamage": 40,
+      "scaling": 1
+    },
+    {
+      "id": "physical-rogue-caltrops",
+      "label": "Caltrops",
+      "group": "Rogue",
+      "kind": "skill",
+      "school": "physical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "physical-rogue-rupture",
+      "label": "Rupture",
+      "group": "Rogue",
+      "kind": "skill",
+      "school": "physical",
+      "baseDamage": 15,
+      "scaling": 0.75
+    },
+    {
+      "id": "physical-druid-summontreant",
+      "label": "Summon Treant",
+      "group": "Druid",
+      "kind": "spell",
+      "school": "physical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "physical-druid-panther-primarybleed",
+      "label": "Panther \u2014 primary bleed",
+      "group": "Druid",
+      "kind": "shapeshift",
+      "school": "physical",
+      "baseDamage": 5,
+      "scaling": 0.5
+    },
+    {
+      "id": "physical-druid-rat-primary",
+      "label": "Rat \u2014 primary",
+      "group": "Druid",
+      "kind": "shapeshift",
+      "school": "physical",
+      "baseDamage": 1,
+      "scaling": 1
+    },
+    {
+      "id": "physical-wizard-meteorstrike",
+      "label": "Meteor Strike",
+      "group": "Wizard",
+      "kind": "spell",
+      "school": "physical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
       "id": "weapon-abyssal-trident-artifactaddeffect",
       "label": "Abyssal Trident \u2014 add effect",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
       "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-arming-sword-poor",
+      "label": "Arming Sword (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 27,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-arming-sword-common",
+      "label": "Arming Sword (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 28,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-arming-sword-uncommon",
+      "label": "Arming Sword (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-arming-sword-rare",
+      "label": "Arming Sword (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-arming-sword-epic",
+      "label": "Arming Sword (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-arming-sword-legendary",
+      "label": "Arming Sword (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-arming-sword-unique",
+      "label": "Arming Sword (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bardiche-poor",
+      "label": "Bardiche (Poor)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 44,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bardiche-common",
+      "label": "Bardiche (Common)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 46,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bardiche-uncommon",
+      "label": "Bardiche (Uncommon)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 48,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bardiche-rare",
+      "label": "Bardiche (Rare)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 50,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bardiche-epic",
+      "label": "Bardiche (Epic)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 52,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bardiche-legendary",
+      "label": "Bardiche (Legendary)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 54,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bardiche-unique",
+      "label": "Bardiche (Unique)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 56,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-battle-axe-poor",
+      "label": "Battle Axe (Poor)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 43,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-battle-axe-common",
+      "label": "Battle Axe (Common)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 45,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-battle-axe-uncommon",
+      "label": "Battle Axe (Uncommon)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 47,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-battle-axe-rare",
+      "label": "Battle Axe (Rare)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 49,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-battle-axe-epic",
+      "label": "Battle Axe (Epic)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 51,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-battle-axe-legendary",
+      "label": "Battle Axe (Legendary)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 53,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-battle-axe-unique",
+      "label": "Battle Axe (Unique)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 55,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bolas-poor",
+      "label": "Bolas (Poor)",
+      "group": "Throwable",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bolas-common",
+      "label": "Bolas (Common)",
+      "group": "Throwable",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 12,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bolas-uncommon",
+      "label": "Bolas (Uncommon)",
+      "group": "Throwable",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 14,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bolas-rare",
+      "label": "Bolas (Rare)",
+      "group": "Throwable",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 16,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bolas-epic",
+      "label": "Bolas (Epic)",
+      "group": "Throwable",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bolas-legendary",
+      "label": "Bolas (Legendary)",
+      "group": "Throwable",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-bolas-unique",
+      "label": "Bolas (Unique)",
+      "group": "Throwable",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-castillon-dagger-poor",
+      "label": "Castillon Dagger (Poor)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-castillon-dagger-common",
+      "label": "Castillon Dagger (Common)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 21,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-castillon-dagger-uncommon",
+      "label": "Castillon Dagger (Uncommon)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-castillon-dagger-rare",
+      "label": "Castillon Dagger (Rare)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-castillon-dagger-epic",
+      "label": "Castillon Dagger (Epic)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 24,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-castillon-dagger-legendary",
+      "label": "Castillon Dagger (Legendary)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-castillon-dagger-unique",
+      "label": "Castillon Dagger (Unique)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 26,
       "scaling": 1
     },
     {
@@ -1123,6 +1539,69 @@
       "scaling": 1
     },
     {
+      "id": "physical-weapon-ceremonial-staff-poor",
+      "label": "Ceremonial Staff (Poor)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 26,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-ceremonial-staff-common",
+      "label": "Ceremonial Staff (Common)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 27,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-ceremonial-staff-uncommon",
+      "label": "Ceremonial Staff (Uncommon)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 28,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-ceremonial-staff-rare",
+      "label": "Ceremonial Staff (Rare)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-ceremonial-staff-epic",
+      "label": "Ceremonial Staff (Epic)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-ceremonial-staff-legendary",
+      "label": "Ceremonial Staff (Legendary)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-ceremonial-staff-unique",
+      "label": "Ceremonial Staff (Unique)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1
+    },
+    {
       "id": "weapon-cinder-additionaldamage",
       "label": "Cinder \u2014 additional damage",
       "group": "Weapons",
@@ -1139,6 +1618,209 @@
       "school": "magical",
       "baseDamage": 27,
       "scaling": 0.5
+    },
+    {
+      "id": "physical-weapon-club-poor",
+      "label": "Club (Poor)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-club-common",
+      "label": "Club (Common)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-club-uncommon",
+      "label": "Club (Uncommon)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-club-rare",
+      "label": "Club (Rare)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-club-epic",
+      "label": "Club (Epic)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-club-legendary",
+      "label": "Club (Legendary)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-club-unique",
+      "label": "Club (Unique)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-crossbow-poor",
+      "label": "Crossbow (Poor)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1,
+      "penetration": 0.3
+    },
+    {
+      "id": "physical-weapon-crossbow-common",
+      "label": "Crossbow (Common)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1,
+      "penetration": 0.3
+    },
+    {
+      "id": "physical-weapon-crossbow-uncommon",
+      "label": "Crossbow (Uncommon)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1,
+      "penetration": 0.3
+    },
+    {
+      "id": "physical-weapon-crossbow-rare",
+      "label": "Crossbow (Rare)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1,
+      "penetration": 0.3
+    },
+    {
+      "id": "physical-weapon-crossbow-epic",
+      "label": "Crossbow (Epic)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1,
+      "penetration": 0.3
+    },
+    {
+      "id": "physical-weapon-crossbow-legendary",
+      "label": "Crossbow (Legendary)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 38,
+      "scaling": 1,
+      "penetration": 0.3
+    },
+    {
+      "id": "physical-weapon-crossbow-unique",
+      "label": "Crossbow (Unique)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1,
+      "penetration": 0.3
+    },
+    {
+      "id": "physical-weapon-crystal-sword-poor",
+      "label": "Crystal Sword (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 13,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-crystal-sword-common",
+      "label": "Crystal Sword (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 14,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-crystal-sword-uncommon",
+      "label": "Crystal Sword (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-crystal-sword-rare",
+      "label": "Crystal Sword (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 16,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-crystal-sword-epic",
+      "label": "Crystal Sword (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 17,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-crystal-sword-legendary",
+      "label": "Crystal Sword (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-crystal-sword-unique",
+      "label": "Crystal Sword (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 19,
+      "scaling": 1
     },
     {
       "id": "weapon-crystal-sword-poor",
@@ -1204,12 +1886,397 @@
       "scaling": 1
     },
     {
+      "id": "physical-weapon-cutlass-poor",
+      "label": "Cutlass (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-cutlass-common",
+      "label": "Cutlass (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-cutlass-uncommon",
+      "label": "Cutlass (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-cutlass-rare",
+      "label": "Cutlass (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-cutlass-epic",
+      "label": "Cutlass (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-cutlass-legendary",
+      "label": "Cutlass (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-cutlass-unique",
+      "label": "Cutlass (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1
+    },
+    {
       "id": "weapon-demon-s-glee",
       "label": "Demon's Glee \u2014 attack",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
       "baseDamage": 1,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-double-axe-poor",
+      "label": "Double Axe (Poor)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 44,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-double-axe-common",
+      "label": "Double Axe (Common)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 46,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-double-axe-uncommon",
+      "label": "Double Axe (Uncommon)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 48,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-double-axe-rare",
+      "label": "Double Axe (Rare)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 50,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-double-axe-epic",
+      "label": "Double Axe (Epic)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 52,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-double-axe-legendary",
+      "label": "Double Axe (Legendary)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 54,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-double-axe-unique",
+      "label": "Double Axe (Unique)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 56,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-falchion-poor",
+      "label": "Falchion (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-falchion-common",
+      "label": "Falchion (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-falchion-uncommon",
+      "label": "Falchion (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-falchion-rare",
+      "label": "Falchion (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-falchion-epic",
+      "label": "Falchion (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-falchion-legendary",
+      "label": "Falchion (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 38,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-falchion-unique",
+      "label": "Falchion (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-felling-axe-poor",
+      "label": "Felling Axe (Poor)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 38,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-felling-axe-common",
+      "label": "Felling Axe (Common)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 40,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-felling-axe-uncommon",
+      "label": "Felling Axe (Uncommon)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 42,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-felling-axe-rare",
+      "label": "Felling Axe (Rare)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 44,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-felling-axe-epic",
+      "label": "Felling Axe (Epic)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 46,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-felling-axe-legendary",
+      "label": "Felling Axe (Legendary)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 48,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-felling-axe-unique",
+      "label": "Felling Axe (Unique)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 50,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-flanged-mace-poor",
+      "label": "Flanged Mace (Poor)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-flanged-mace-common",
+      "label": "Flanged Mace (Common)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-flanged-mace-uncommon",
+      "label": "Flanged Mace (Uncommon)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-flanged-mace-rare",
+      "label": "Flanged Mace (Rare)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-flanged-mace-epic",
+      "label": "Flanged Mace (Epic)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-flanged-mace-legendary",
+      "label": "Flanged Mace (Legendary)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-flanged-mace-unique",
+      "label": "Flanged Mace (Unique)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-francisca-axe-poor",
+      "label": "Francisca Axe (Poor)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 12,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-francisca-axe-common",
+      "label": "Francisca Axe (Common)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 14,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-francisca-axe-uncommon",
+      "label": "Francisca Axe (Uncommon)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 16,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-francisca-axe-rare",
+      "label": "Francisca Axe (Rare)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-francisca-axe-epic",
+      "label": "Francisca Axe (Epic)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-francisca-axe-legendary",
+      "label": "Francisca Axe (Legendary)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-francisca-axe-unique",
+      "label": "Francisca Axe (Unique)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 24,
       "scaling": 1
     },
     {
@@ -1231,6 +2298,391 @@
       "scaling": 1
     },
     {
+      "id": "physical-weapon-halberd-poor",
+      "label": "Halberd (Poor)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 45,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-halberd-common",
+      "label": "Halberd (Common)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 47,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-halberd-uncommon",
+      "label": "Halberd (Uncommon)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 49,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-halberd-rare",
+      "label": "Halberd (Rare)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 51,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-halberd-epic",
+      "label": "Halberd (Epic)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 53,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-halberd-legendary",
+      "label": "Halberd (Legendary)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 55,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-halberd-unique",
+      "label": "Halberd (Unique)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 57,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hand-cannon-poor",
+      "label": "Hand Cannon (Poor)",
+      "group": "Firearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hand-cannon-common",
+      "label": "Hand Cannon (Common)",
+      "group": "Firearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hand-cannon-uncommon",
+      "label": "Hand Cannon (Uncommon)",
+      "group": "Firearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hand-cannon-rare",
+      "label": "Hand Cannon (Rare)",
+      "group": "Firearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 41,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hand-cannon-epic",
+      "label": "Hand Cannon (Epic)",
+      "group": "Firearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 43,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hand-cannon-legendary",
+      "label": "Hand Cannon (Legendary)",
+      "group": "Firearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 45,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hand-cannon-unique",
+      "label": "Hand Cannon (Unique)",
+      "group": "Firearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 47,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hand-crossbow-poor",
+      "label": "Hand Crossbow (Poor)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 17,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-hand-crossbow-common",
+      "label": "Hand Crossbow (Common)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-hand-crossbow-uncommon",
+      "label": "Hand Crossbow (Uncommon)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 19,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-hand-crossbow-rare",
+      "label": "Hand Crossbow (Rare)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-hand-crossbow-epic",
+      "label": "Hand Crossbow (Epic)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 21,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-hand-crossbow-legendary",
+      "label": "Hand Crossbow (Legendary)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-hand-crossbow-unique",
+      "label": "Hand Crossbow (Unique)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-hatchet-poor",
+      "label": "Hatchet (Poor)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 27,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hatchet-common",
+      "label": "Hatchet (Common)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 28,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hatchet-uncommon",
+      "label": "Hatchet (Uncommon)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hatchet-rare",
+      "label": "Hatchet (Rare)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hatchet-epic",
+      "label": "Hatchet (Epic)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hatchet-legendary",
+      "label": "Hatchet (Legendary)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-hatchet-unique",
+      "label": "Hatchet (Unique)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-horseman-s-axe-poor",
+      "label": "Horseman's Axe (Poor)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 28,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-horseman-s-axe-common",
+      "label": "Horseman's Axe (Common)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-horseman-s-axe-uncommon",
+      "label": "Horseman's Axe (Uncommon)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-horseman-s-axe-rare",
+      "label": "Horseman's Axe (Rare)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-horseman-s-axe-epic",
+      "label": "Horseman's Axe (Epic)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-horseman-s-axe-legendary",
+      "label": "Horseman's Axe (Legendary)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-horseman-s-axe-unique",
+      "label": "Horseman's Axe (Unique)",
+      "group": "Axe",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-kris-dagger-poor",
+      "label": "Kris Dagger (Poor)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 16,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-kris-dagger-common",
+      "label": "Kris Dagger (Common)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 17,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-kris-dagger-uncommon",
+      "label": "Kris Dagger (Uncommon)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-kris-dagger-rare",
+      "label": "Kris Dagger (Rare)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 19,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-kris-dagger-epic",
+      "label": "Kris Dagger (Epic)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-kris-dagger-legendary",
+      "label": "Kris Dagger (Legendary)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 21,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-kris-dagger-unique",
+      "label": "Kris Dagger (Unique)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
       "id": "weapon-kuma-s-claw-unnamed-artifact-passive",
       "label": "Kuma's Claw \u2014 unnamed artifact passive",
       "group": "Weapons",
@@ -1249,12 +2701,740 @@
       "scaling": 1
     },
     {
+      "id": "physical-weapon-lantern-shield-poor",
+      "label": "Lantern Shield (Poor)",
+      "group": "Shield",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lantern-shield-common",
+      "label": "Lantern Shield (Common)",
+      "group": "Shield",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 24,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lantern-shield-uncommon",
+      "label": "Lantern Shield (Uncommon)",
+      "group": "Shield",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lantern-shield-rare",
+      "label": "Lantern Shield (Rare)",
+      "group": "Shield",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 26,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lantern-shield-epic",
+      "label": "Lantern Shield (Epic)",
+      "group": "Shield",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 27,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lantern-shield-legendary",
+      "label": "Lantern Shield (Legendary)",
+      "group": "Shield",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 28,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lantern-shield-unique",
+      "label": "Lantern Shield (Unique)",
+      "group": "Shield",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1
+    },
+    {
       "id": "weapon-leviathan-artifacthitenemy",
       "label": "Leviathan \u2014 hit enemy",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
       "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-longbow-poor",
+      "label": "Longbow (Poor)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-longbow-common",
+      "label": "Longbow (Common)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-longbow-uncommon",
+      "label": "Longbow (Uncommon)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-longbow-rare",
+      "label": "Longbow (Rare)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-longbow-epic",
+      "label": "Longbow (Epic)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-longbow-legendary",
+      "label": "Longbow (Legendary)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 38,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-longbow-unique",
+      "label": "Longbow (Unique)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-longsword-poor",
+      "label": "Longsword (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-longsword-common",
+      "label": "Longsword (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-longsword-uncommon",
+      "label": "Longsword (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 38,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-longsword-rare",
+      "label": "Longsword (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-longsword-epic",
+      "label": "Longsword (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 40,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-longsword-legendary",
+      "label": "Longsword (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 41,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-longsword-unique",
+      "label": "Longsword (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 42,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lute-poor",
+      "label": "Lute (Poor)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lute-common",
+      "label": "Lute (Common)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 21,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lute-uncommon",
+      "label": "Lute (Uncommon)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lute-rare",
+      "label": "Lute (Rare)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lute-epic",
+      "label": "Lute (Epic)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 24,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lute-legendary",
+      "label": "Lute (Legendary)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-lute-unique",
+      "label": "Lute (Unique)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 26,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-magic-staff-poor",
+      "label": "Magic Staff (Poor)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-magic-staff-common",
+      "label": "Magic Staff (Common)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-magic-staff-uncommon",
+      "label": "Magic Staff (Uncommon)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-magic-staff-rare",
+      "label": "Magic Staff (Rare)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-magic-staff-epic",
+      "label": "Magic Staff (Epic)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-magic-staff-legendary",
+      "label": "Magic Staff (Legendary)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-magic-staff-unique",
+      "label": "Magic Staff (Unique)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-morning-star-poor",
+      "label": "Morning Star (Poor)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-morning-star-common",
+      "label": "Morning Star (Common)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-morning-star-uncommon",
+      "label": "Morning Star (Uncommon)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-morning-star-rare",
+      "label": "Morning Star (Rare)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-morning-star-epic",
+      "label": "Morning Star (Epic)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-morning-star-legendary",
+      "label": "Morning Star (Legendary)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-morning-star-unique",
+      "label": "Morning Star (Unique)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-quarterstaff-poor",
+      "label": "Quarterstaff (Poor)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-quarterstaff-common",
+      "label": "Quarterstaff (Common)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-quarterstaff-uncommon",
+      "label": "Quarterstaff (Uncommon)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-quarterstaff-rare",
+      "label": "Quarterstaff (Rare)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 38,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-quarterstaff-epic",
+      "label": "Quarterstaff (Epic)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-quarterstaff-legendary",
+      "label": "Quarterstaff (Legendary)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 40,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-quarterstaff-unique",
+      "label": "Quarterstaff (Unique)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 41,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-rapier-poor",
+      "label": "Rapier (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-rapier-common",
+      "label": "Rapier (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-rapier-uncommon",
+      "label": "Rapier (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 24,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-rapier-rare",
+      "label": "Rapier (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-rapier-epic",
+      "label": "Rapier (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 26,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-rapier-legendary",
+      "label": "Rapier (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 27,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-rapier-unique",
+      "label": "Rapier (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 28,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-recurve-bow-poor",
+      "label": "Recurve Bow (Poor)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 25,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-recurve-bow-common",
+      "label": "Recurve Bow (Common)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 26,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-recurve-bow-uncommon",
+      "label": "Recurve Bow (Uncommon)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 27,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-recurve-bow-rare",
+      "label": "Recurve Bow (Rare)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 28,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-recurve-bow-epic",
+      "label": "Recurve Bow (Epic)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-recurve-bow-legendary",
+      "label": "Recurve Bow (Legendary)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-recurve-bow-unique",
+      "label": "Recurve Bow (Unique)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "physical-weapon-rondel-dagger-poor",
+      "label": "Rondel Dagger (Poor)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 16,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-rondel-dagger-common",
+      "label": "Rondel Dagger (Common)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 17,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-rondel-dagger-uncommon",
+      "label": "Rondel Dagger (Uncommon)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-rondel-dagger-rare",
+      "label": "Rondel Dagger (Rare)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 19,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-rondel-dagger-epic",
+      "label": "Rondel Dagger (Epic)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-rondel-dagger-legendary",
+      "label": "Rondel Dagger (Legendary)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 21,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-rondel-dagger-unique",
+      "label": "Rondel Dagger (Unique)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-short-sword-poor",
+      "label": "Short Sword (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-short-sword-common",
+      "label": "Short Sword (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 24,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-short-sword-uncommon",
+      "label": "Short Sword (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 25,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-short-sword-rare",
+      "label": "Short Sword (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 26,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-short-sword-epic",
+      "label": "Short Sword (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 27,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-short-sword-legendary",
+      "label": "Short Sword (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 28,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-short-sword-unique",
+      "label": "Short Sword (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
       "scaling": 1
     },
     {
@@ -1267,12 +3447,397 @@
       "scaling": 1
     },
     {
+      "id": "physical-weapon-spear-poor",
+      "label": "Spear (Poor)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spear-common",
+      "label": "Spear (Common)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spear-uncommon",
+      "label": "Spear (Uncommon)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spear-rare",
+      "label": "Spear (Rare)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spear-epic",
+      "label": "Spear (Epic)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 38,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spear-legendary",
+      "label": "Spear (Legendary)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spear-unique",
+      "label": "Spear (Unique)",
+      "group": "Polearm",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 40,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spellbook-poor",
+      "label": "Spellbook (Poor)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spellbook-common",
+      "label": "Spellbook (Common)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 19,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spellbook-uncommon",
+      "label": "Spellbook (Uncommon)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spellbook-rare",
+      "label": "Spellbook (Rare)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 21,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spellbook-epic",
+      "label": "Spellbook (Epic)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spellbook-legendary",
+      "label": "Spellbook (Legendary)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-spellbook-unique",
+      "label": "Spellbook (Unique)",
+      "group": "Staff",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 24,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-stiletto-dagger-poor",
+      "label": "Stiletto Dagger (Poor)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 17,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-stiletto-dagger-common",
+      "label": "Stiletto Dagger (Common)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-stiletto-dagger-uncommon",
+      "label": "Stiletto Dagger (Uncommon)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 19,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-stiletto-dagger-rare",
+      "label": "Stiletto Dagger (Rare)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-stiletto-dagger-epic",
+      "label": "Stiletto Dagger (Epic)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 21,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-stiletto-dagger-legendary",
+      "label": "Stiletto Dagger (Legendary)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
+      "id": "physical-weapon-stiletto-dagger-unique",
+      "label": "Stiletto Dagger (Unique)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1,
+      "penetration": 0.07
+    },
+    {
       "id": "weapon-stinky-stick-poisonclouddamage",
       "label": "Stinky Stick \u2014 poison cloud damage",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
       "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-survival-bow-poor",
+      "label": "Survival Bow (Poor)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 17,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-survival-bow-common",
+      "label": "Survival Bow (Common)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-survival-bow-uncommon",
+      "label": "Survival Bow (Uncommon)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 19,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-survival-bow-rare",
+      "label": "Survival Bow (Rare)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-survival-bow-epic",
+      "label": "Survival Bow (Epic)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 21,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-survival-bow-legendary",
+      "label": "Survival Bow (Legendary)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-survival-bow-unique",
+      "label": "Survival Bow (Unique)",
+      "group": "Bow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 23,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-throwing-knife-poor",
+      "label": "Throwing Knife (Poor)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 10,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-throwing-knife-common",
+      "label": "Throwing Knife (Common)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 12,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-throwing-knife-uncommon",
+      "label": "Throwing Knife (Uncommon)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 14,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-throwing-knife-rare",
+      "label": "Throwing Knife (Rare)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 16,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-throwing-knife-epic",
+      "label": "Throwing Knife (Epic)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 18,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-throwing-knife-legendary",
+      "label": "Throwing Knife (Legendary)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 20,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-throwing-knife-unique",
+      "label": "Throwing Knife (Unique)",
+      "group": "Dagger",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 22,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-viking-sword-poor",
+      "label": "Viking Sword (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 29,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-viking-sword-common",
+      "label": "Viking Sword (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 30,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-viking-sword-uncommon",
+      "label": "Viking Sword (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 31,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-viking-sword-rare",
+      "label": "Viking Sword (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-viking-sword-epic",
+      "label": "Viking Sword (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-viking-sword-legendary",
+      "label": "Viking Sword (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-viking-sword-unique",
+      "label": "Viking Sword (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
       "scaling": 1
     },
     {
@@ -1294,12 +3859,285 @@
       "scaling": 1
     },
     {
+      "id": "physical-weapon-war-hammer-poor",
+      "label": "War Hammer (Poor)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 32,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-war-hammer-common",
+      "label": "War Hammer (Common)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 33,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-war-hammer-uncommon",
+      "label": "War Hammer (Uncommon)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 34,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-war-hammer-rare",
+      "label": "War Hammer (Rare)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 35,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-war-hammer-epic",
+      "label": "War Hammer (Epic)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 36,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-war-hammer-legendary",
+      "label": "War Hammer (Legendary)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-war-hammer-unique",
+      "label": "War Hammer (Unique)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 38,
+      "scaling": 1,
+      "penetration": 0.1
+    },
+    {
+      "id": "physical-weapon-war-maul-poor",
+      "label": "War Maul (Poor)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 42,
+      "scaling": 1,
+      "penetration": 0.2
+    },
+    {
+      "id": "physical-weapon-war-maul-common",
+      "label": "War Maul (Common)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 44,
+      "scaling": 1,
+      "penetration": 0.2
+    },
+    {
+      "id": "physical-weapon-war-maul-uncommon",
+      "label": "War Maul (Uncommon)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 46,
+      "scaling": 1,
+      "penetration": 0.2
+    },
+    {
+      "id": "physical-weapon-war-maul-rare",
+      "label": "War Maul (Rare)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 48,
+      "scaling": 1,
+      "penetration": 0.2
+    },
+    {
+      "id": "physical-weapon-war-maul-epic",
+      "label": "War Maul (Epic)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 50,
+      "scaling": 1,
+      "penetration": 0.2
+    },
+    {
+      "id": "physical-weapon-war-maul-legendary",
+      "label": "War Maul (Legendary)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 52,
+      "scaling": 1,
+      "penetration": 0.2
+    },
+    {
+      "id": "physical-weapon-war-maul-unique",
+      "label": "War Maul (Unique)",
+      "group": "Mace",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 54,
+      "scaling": 1,
+      "penetration": 0.2
+    },
+    {
+      "id": "physical-weapon-windlass-crossbow-poor",
+      "label": "Windlass Crossbow (Poor)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 37,
+      "scaling": 1,
+      "penetration": 0.4
+    },
+    {
+      "id": "physical-weapon-windlass-crossbow-common",
+      "label": "Windlass Crossbow (Common)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1,
+      "penetration": 0.4
+    },
+    {
+      "id": "physical-weapon-windlass-crossbow-uncommon",
+      "label": "Windlass Crossbow (Uncommon)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 41,
+      "scaling": 1,
+      "penetration": 0.4
+    },
+    {
+      "id": "physical-weapon-windlass-crossbow-rare",
+      "label": "Windlass Crossbow (Rare)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 43,
+      "scaling": 1,
+      "penetration": 0.4
+    },
+    {
+      "id": "physical-weapon-windlass-crossbow-epic",
+      "label": "Windlass Crossbow (Epic)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 45,
+      "scaling": 1,
+      "penetration": 0.4
+    },
+    {
+      "id": "physical-weapon-windlass-crossbow-legendary",
+      "label": "Windlass Crossbow (Legendary)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 47,
+      "scaling": 1,
+      "penetration": 0.4
+    },
+    {
+      "id": "physical-weapon-windlass-crossbow-unique",
+      "label": "Windlass Crossbow (Unique)",
+      "group": "Crossbow",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 49,
+      "scaling": 1,
+      "penetration": 0.4
+    },
+    {
       "id": "weapon-windreaver-artifactaddeffect",
       "label": "Windreaver \u2014 add effect",
       "group": "Weapons",
       "kind": "weapon",
       "school": "magical",
       "baseDamage": 15,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-zweihander-poor",
+      "label": "Zweihander (Poor)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 39,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-zweihander-common",
+      "label": "Zweihander (Common)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 41,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-zweihander-uncommon",
+      "label": "Zweihander (Uncommon)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 43,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-zweihander-rare",
+      "label": "Zweihander (Rare)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 45,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-zweihander-epic",
+      "label": "Zweihander (Epic)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 47,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-zweihander-legendary",
+      "label": "Zweihander (Legendary)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 49,
+      "scaling": 1
+    },
+    {
+      "id": "physical-weapon-zweihander-unique",
+      "label": "Zweihander (Unique)",
+      "group": "Sword",
+      "kind": "weapon",
+      "school": "physical",
+      "baseDamage": 51,
       "scaling": 1
     }
   ],
@@ -1327,6 +4165,296 @@
       "label": "50% DR",
       "physicalDamageReduction": 0.5,
       "magicalDamageReduction": 0.5
+    }
+  ],
+  "weapons": [
+    {
+      "id": "crystal-ball-poor",
+      "label": "Crystal Ball (Poor)",
+      "group": "Crystal Ball",
+      "school": "magical",
+      "gearDamage": 3,
+      "penetration": 0.1
+    },
+    {
+      "id": "crystal-ball-common",
+      "label": "Crystal Ball (Common)",
+      "group": "Crystal Ball",
+      "school": "magical",
+      "gearDamage": 4,
+      "penetration": 0.1
+    },
+    {
+      "id": "crystal-ball-uncommon",
+      "label": "Crystal Ball (Uncommon)",
+      "group": "Crystal Ball",
+      "school": "magical",
+      "gearDamage": 5,
+      "penetration": 0.1
+    },
+    {
+      "id": "crystal-ball-rare",
+      "label": "Crystal Ball (Rare)",
+      "group": "Crystal Ball",
+      "school": "magical",
+      "gearDamage": 6,
+      "penetration": 0.1
+    },
+    {
+      "id": "crystal-ball-epic",
+      "label": "Crystal Ball (Epic)",
+      "group": "Crystal Ball",
+      "school": "magical",
+      "gearDamage": 7,
+      "penetration": 0.1
+    },
+    {
+      "id": "crystal-ball-legendary",
+      "label": "Crystal Ball (Legendary)",
+      "group": "Crystal Ball",
+      "school": "magical",
+      "gearDamage": 8,
+      "penetration": 0.1
+    },
+    {
+      "id": "crystal-ball-unique",
+      "label": "Crystal Ball (Unique)",
+      "group": "Crystal Ball",
+      "school": "magical",
+      "gearDamage": 9,
+      "penetration": 0.1
+    },
+    {
+      "id": "magic-staff-poor",
+      "label": "Magic Staff (Poor)",
+      "group": "Magic Staff",
+      "school": "magical",
+      "gearDamage": 4,
+      "penetration": 0.15
+    },
+    {
+      "id": "magic-staff-common",
+      "label": "Magic Staff (Common)",
+      "group": "Magic Staff",
+      "school": "magical",
+      "gearDamage": 5,
+      "penetration": 0.15
+    },
+    {
+      "id": "magic-staff-uncommon",
+      "label": "Magic Staff (Uncommon)",
+      "group": "Magic Staff",
+      "school": "magical",
+      "gearDamage": 6,
+      "penetration": 0.15
+    },
+    {
+      "id": "magic-staff-rare",
+      "label": "Magic Staff (Rare)",
+      "group": "Magic Staff",
+      "school": "magical",
+      "gearDamage": 7,
+      "penetration": 0.15
+    },
+    {
+      "id": "magic-staff-epic",
+      "label": "Magic Staff (Epic)",
+      "group": "Magic Staff",
+      "school": "magical",
+      "gearDamage": 8,
+      "penetration": 0.15
+    },
+    {
+      "id": "magic-staff-legendary",
+      "label": "Magic Staff (Legendary)",
+      "group": "Magic Staff",
+      "school": "magical",
+      "gearDamage": 9,
+      "penetration": 0.15
+    },
+    {
+      "id": "magic-staff-unique",
+      "label": "Magic Staff (Unique)",
+      "group": "Magic Staff",
+      "school": "magical",
+      "gearDamage": 10,
+      "penetration": 0.15
+    },
+    {
+      "id": "spellbook-poor",
+      "label": "Spellbook (Poor)",
+      "group": "Spellbook",
+      "school": "magical",
+      "gearDamage": 1,
+      "penetration": 0.05
+    },
+    {
+      "id": "spellbook-common",
+      "label": "Spellbook (Common)",
+      "group": "Spellbook",
+      "school": "magical",
+      "gearDamage": 2,
+      "penetration": 0.05
+    },
+    {
+      "id": "spellbook-uncommon",
+      "label": "Spellbook (Uncommon)",
+      "group": "Spellbook",
+      "school": "magical",
+      "gearDamage": 3,
+      "penetration": 0.05
+    },
+    {
+      "id": "spellbook-rare",
+      "label": "Spellbook (Rare)",
+      "group": "Spellbook",
+      "school": "magical",
+      "gearDamage": 4,
+      "penetration": 0.05
+    },
+    {
+      "id": "spellbook-epic",
+      "label": "Spellbook (Epic)",
+      "group": "Spellbook",
+      "school": "magical",
+      "gearDamage": 5,
+      "penetration": 0.05
+    },
+    {
+      "id": "spellbook-legendary",
+      "label": "Spellbook (Legendary)",
+      "group": "Spellbook",
+      "school": "magical",
+      "gearDamage": 6,
+      "penetration": 0.05
+    },
+    {
+      "id": "spellbook-unique",
+      "label": "Spellbook (Unique)",
+      "group": "Spellbook",
+      "school": "magical",
+      "gearDamage": 7,
+      "penetration": 0.05
+    },
+    {
+      "id": "cyclops-vision-crystal-epic",
+      "label": "Cyclops Vision Crystal",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 7,
+      "penetration": 0.1
+    },
+    {
+      "id": "illusory-artifact",
+      "label": "Illusory",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 11,
+      "penetration": 0.15
+    },
+    {
+      "id": "mana-sphere-epic",
+      "label": "Mana Sphere",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 7,
+      "penetration": 0.1
+    },
+    {
+      "id": "obsidian-bardiche-epic",
+      "label": "Obsidian Bardiche",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 0,
+      "penetration": 0.035
+    },
+    {
+      "id": "obsidian-cutlass-epic",
+      "label": "Obsidian Cutlass",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 0,
+      "penetration": 0.02
+    },
+    {
+      "id": "obsidian-morningstar-epic",
+      "label": "Obsidian Morningstar",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 0,
+      "penetration": 0.02
+    },
+    {
+      "id": "obsidian-stiletto-dagger-epic",
+      "label": "Obsidian Stiletto Dagger",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 0,
+      "penetration": 0.02
+    },
+    {
+      "id": "obsidian-war-hammer-epic",
+      "label": "Obsidian War Hammer",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 0,
+      "penetration": 0.02
+    },
+    {
+      "id": "requiem-of-the-fairy-epic",
+      "label": "Requiem of the Fairy",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 5,
+      "penetration": 0.05
+    },
+    {
+      "id": "soul-devoted-folio-legendary",
+      "label": "Soul-Devoted Folio",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 6,
+      "penetration": 0.05
+    },
+    {
+      "id": "spellplunder-rod-epic",
+      "label": "Spellplunder Rod",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 8,
+      "penetration": 0.15
+    },
+    {
+      "id": "spellweaver-artifact",
+      "label": "Spellweaver",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 8,
+      "penetration": 0.05
+    },
+    {
+      "id": "tidal-crystal-ball-epic",
+      "label": "Tidal Crystal Ball",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 7,
+      "penetration": 0.1
+    },
+    {
+      "id": "tome-of-sheol-epic",
+      "label": "Tome of Sheol",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 5,
+      "penetration": 0.1
+    },
+    {
+      "id": "zirkzi-s-eye-artifact",
+      "label": "Zirkzi's Eye",
+      "group": "Uniques",
+      "school": "magical",
+      "gearDamage": 10,
+      "penetration": 0.1
     }
   ]
 }

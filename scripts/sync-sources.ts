@@ -14,16 +14,19 @@ const CLASSES = [
   "Wizard",
   "Ranger",
 ];
-const RARITIES = ["Poor", "Common", "Uncommon", "Rare", "Epic", "Legendary", "Unique"];
+const RARITIES = ["Poor", "Common", "Uncommon", "Rare", "Epic", "Legendary", "Unique", "Artifact"];
+
+type School = "magical" | "physical";
 
 interface Source {
   id: string;
   label: string;
   group: string;
   kind: string;
-  school: "magical";
+  school: School;
   baseDamage: number;
   scaling: number;
+  penetration?: number;
 }
 
 async function wikitext(page: string): Promise<{ text: string; revid: number }> {
@@ -59,6 +62,7 @@ const splitCamel = (s: string) =>
 
 const PART_TOKENS = [
   "lavaelemental",
+  "primary",
   "firemastery",
   "cursemastery",
   "lightning",
@@ -67,6 +71,7 @@ const PART_TOKENS = [
   "damage",
   "finale",
   "bounce",
+  "bleed",
   "burning",
   "arrow",
   "aura",
@@ -130,9 +135,12 @@ async function abilityNames(): Promise<Map<string, string>> {
   return names;
 }
 
-async function abilitySources(): Promise<{ sources: Source[]; skipped: string[]; revid: number }> {
-  const { text, revid } = await wikitext("Template:Ability Data");
-  const names = await abilityNames();
+async function abilitySources(
+  text: string,
+  names: Map<string, string>,
+  school: School,
+): Promise<{ sources: Source[]; skipped: string[] }> {
+  const field = `${school}basedamage`;
   const sources: Source[] = [];
   const skipped: string[] = [];
   let cls = "";
@@ -144,12 +152,12 @@ async function abilitySources(): Promise<{ sources: Source[]; skipped: string[];
     if (!ability) return;
     const name = names.get(ability) ?? splitCamel(ability);
     for (const [key, value] of fields) {
-      if (!key.endsWith("magicalbasedamage")) continue;
-      const prefix = key.slice(0, -"magicalbasedamage".length);
+      if (!key.endsWith(field)) continue;
+      const prefix = key.slice(0, -field.length);
       if (prefix.startsWith("true") || prefix.startsWith("desc")) continue;
       const damages = leadingNumbers(value);
       const scalings = scalingFor(fields, prefix);
-      if (!damages.length || !scalings?.length) {
+      if (!damages.length || !scalings?.length || scalings.every((v) => Number(v.replace("%", "")) === 0)) {
         skipped.push(`${cls}/${ability}/${prefix || "-"}`);
         continue;
       }
@@ -158,11 +166,11 @@ async function abilitySources(): Promise<{ sources: Source[]; skipped: string[];
         const tier = damages.length > 1 ? ` tier ${i + 1}` : "";
         const label = `${name}${part ? ` — ${part}` : ""}${tier}`;
         sources.push({
-          id: slug(`${cls}-${ability}-${prefix}${tier}`),
+          id: slug(`${school === "physical" ? "physical-" : ""}${cls}-${ability}-${prefix}${tier}`),
           label,
           group: cls,
           kind: kind.toLowerCase(),
-          school: "magical",
+          school,
           baseDamage: Number(d),
           scaling: Number((scalings[Math.min(i, scalings.length - 1)] ?? "").replace("%", "")) / 100,
         });
@@ -187,22 +195,85 @@ async function abilitySources(): Promise<{ sources: Source[]; skipped: string[];
       fields = new Map();
       continue;
     }
-    const field = /^\s+\|([a-z0-9]+)=(.*)$/.exec(line);
-    if (field && ability) fields.set(field[1]!, field[2]!);
+    const entry = /^\s+\|([a-z0-9]+)=(.*)$/.exec(line);
+    if (entry && ability) fields.set(entry[1]!, entry[2]!);
   }
   flush();
-  return { sources, skipped, revid };
+  return { sources, skipped };
 }
 
 type Json = { [k: string]: Json } | Json[] | string | number | boolean | null;
 
-async function weaponSources(): Promise<{ sources: Source[]; revid: number }> {
+const WEAPON_GROUPS: Record<string, string> = { MagicStuff: "Staff", ThrowableStuff: "Throwable" };
+const weaponGroup = (type: string | undefined) => (type ? (WEAPON_GROUPS[type] ?? type) : "Weapons");
+
+interface Weapon {
+  id: string;
+  label: string;
+  group: string;
+  school: School;
+  gearDamage: number;
+  penetration: number;
+}
+
+type WeaponData = Record<
+  string,
+  { stats?: Record<string, Json>; abilities?: Json; rarities?: string[]; types?: Record<string, string> }
+>;
+
+const rarityOf = (w: WeaponData[string], i: number) => RARITIES[Number(w.rarities?.[i] ?? i + 1) - 1];
+
+function magicalWeapons(weapons: WeaponData): Weapon[] {
+  const out: Weapon[] = [];
+  for (const [name, w] of Object.entries(weapons)) {
+    const gear = w.stats?.["gear magical damage"];
+    const pen = penetrationOf(w.stats?.["magical penetration"]);
+    if (gear === undefined && !pen) continue;
+    const perRarity = Array.isArray(gear) ? gear : (w.rarities ?? ["1"]).map(() => gear ?? "0");
+    const group = perRarity.length > 1 ? name : "Uniques";
+    perRarity.forEach((d, i) => {
+      const rarity = rarityOf(w, i);
+      out.push({
+        id: slug(`${name}-${rarity}`),
+        label: group === "Uniques" ? name : `${name} (${rarity})`,
+        group,
+        school: "magical",
+        gearDamage: Number(d),
+        penetration: pen,
+      });
+    });
+  }
+  return out.sort((a, b) => Number(a.group === "Uniques") - Number(b.group === "Uniques"));
+}
+
+function penetrationOf(v: Json | undefined): number {
+  if (typeof v !== "string") return 0;
+  const top = v.replace("%", "").split("~").at(-1) ?? "0";
+  return Number(top) / 100;
+}
+
+async function weaponSources(): Promise<{ sources: Source[]; weapons: Weapon[]; revid: number }> {
   const { text, revid } = await raw("Data:Weapon.json");
-  const weapons = (
-    JSON.parse(text) as { Weapon: Record<string, { stats?: Record<string, Json>; abilities?: Json }> }
-  ).Weapon;
+  const weapons = (JSON.parse(text) as { Weapon: WeaponData }).Weapon;
   const sources: Source[] = [];
   for (const [name, w] of Object.entries(weapons)) {
+    const physical = w.stats?.["physical base weapon damage"];
+    if (Array.isArray(physical)) {
+      const pen = penetrationOf(w.stats?.["armor penetration"]);
+      physical.forEach((d, i) => {
+        const rarity = rarityOf(w, i);
+        sources.push({
+          id: slug(`physical-weapon-${name}-${rarity}`),
+          label: `${name} (${rarity})`,
+          group: weaponGroup(Object.keys(w.types ?? {})[0]),
+          kind: "weapon",
+          school: "physical",
+          baseDamage: Number(d),
+          scaling: 1,
+          ...(pen ? { penetration: pen } : {}),
+        });
+      });
+    }
     const base = w.stats?.["magical base weapon damage"];
     if (Array.isArray(base)) {
       base.forEach((d, i) =>
@@ -249,26 +320,38 @@ async function weaponSources(): Promise<{ sources: Source[]; revid: number }> {
     };
     visit(w.abilities ?? null, []);
   }
-  return { sources, revid };
+  return { sources, weapons: magicalWeapons(weapons), revid };
 }
 
 const snapshotPath = process.argv[2];
 if (!snapshotPath) throw new Error("usage: node scripts/sync-sources.ts <snapshot.json>");
 
-const abilities = await abilitySources();
+const ability = await wikitext("Template:Ability Data");
+const names = await abilityNames();
+const magical = await abilitySources(ability.text, names, "magical");
+const physical = await abilitySources(ability.text, names, "physical");
+const abilities = {
+  sources: [...magical.sources, ...physical.sources],
+  skipped: [...magical.skipped, ...physical.skipped],
+  revid: ability.revid,
+};
 const weapons = await weaponSources();
 const snapshot = JSON.parse(readFileSync(snapshotPath, "utf8")) as {
   snapshot: { revisions: Record<string, number> };
   sources: Source[];
+  weapons: Weapon[];
 };
 const all = [...abilities.sources, ...weapons.sources];
 const dupes = all.filter((s, i) => all.findIndex((o) => o.id === s.id) !== i).map((s) => s.id);
 if (dupes.length) throw new Error(`duplicate ids: ${dupes.join(", ")}`);
 
 snapshot.sources = all;
+snapshot.weapons = weapons.weapons;
 snapshot.snapshot.revisions["Template:Ability Data"] = abilities.revid;
 snapshot.snapshot.revisions["Data:Weapon.json"] = weapons.revid;
 writeFileSync(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`);
 
-console.log(`abilities: ${abilities.sources.length}, weapons: ${weapons.sources.length}`);
+console.log(
+  `abilities: ${abilities.sources.length}, weapon sources: ${weapons.sources.length}, magical weapons: ${weapons.weapons.length}`,
+);
 console.log(`skipped (no damage number or scaling): ${abilities.skipped.join(", ") || "none"}`);
