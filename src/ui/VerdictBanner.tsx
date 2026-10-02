@@ -3,6 +3,7 @@ import { RichText } from "./RichText";
 export interface TextWithValues {
   template: string;
   values: Record<string, string>;
+  fixed?: readonly string[];
 }
 
 export function VerdictBanner({

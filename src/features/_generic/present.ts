@@ -10,5 +10,8 @@ export function presentStatement(s: Statement): TextWithValues {
     values: Object.fromEntries(
       Object.entries(s.values).map(([k, v]) => [k, typeof v === "string" ? v : formatQuantity(v)]),
     ),
+    fixed: Object.entries(s.values)
+      .filter(([, v]) => typeof v !== "string")
+      .map(([k]) => k),
   };
 }
