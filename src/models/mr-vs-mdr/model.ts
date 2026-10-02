@@ -128,7 +128,7 @@ export function nextRoll(total: number, m: Mode, mdrRolls: number, data: GameDat
 
 export const mrVsMdr = defineModel({
   id: "mr-vs-mdr",
-  title: "MR or MDR",
+  title: "When to roll MDR instead of MR",
   question: "With the Will you already have, should you roll MR or MDR, and when do you hit the cap?",
   params,
   groups: [{ id: "have", label: "You already have", placement: "chart", columns: "auto" }],
