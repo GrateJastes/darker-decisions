@@ -1,4 +1,4 @@
-# darker-tweaks — plan
+# Darker Decisions — plan
 
 A set of small **stat-tradeoff optimizers** for Dark and Darker. Each one answers a single question with sliders, a curve, and a readout. It shows _when_ one stat stops being worth it and another takes over.
 

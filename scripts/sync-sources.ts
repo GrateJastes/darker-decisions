@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 const WIKI = "https://darkanddarker.wiki.spellsandguns.com";
-const UA = { "User-Agent": "darker-tweaks/0.1 (data sync)" };
+const UA = { "User-Agent": "darker-decisions/0.1 (data sync)" };
 const CLASSES = [
   "Bard",
   "Barbarian",

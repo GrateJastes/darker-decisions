@@ -1,4 +1,4 @@
-# darker-tweaks
+# Darker Decisions
 
 Small stat trade-off calculators for Dark and Darker. Each one illustrates a single statement, such as "against 150 MR, magic pen beats MPB once you have ~78% MPB".
 
