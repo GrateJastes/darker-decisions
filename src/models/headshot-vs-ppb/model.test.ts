@@ -5,7 +5,7 @@ import { effectiveReduction, gains, headMultiplier, headshotVsPpb, requiredRate,
 
 const data = currentData;
 const p = defaults(headshotVsPpb.params);
-const plain = { ...p, base: 40, scaling: 1, add: 0, pb: 0.3, hsr: 0, hsp: 0 };
+const plain = { ...p, base: 40, add: 0, pb: 0.3, hsr: 0, hsp: 0 };
 
 describe("headshot-vs-ppb", () => {
   it("adds headshot bonus to 150%, subtracts reduction and caps the bonus at 30%", () => {
@@ -64,12 +64,13 @@ describe("headshot-vs-ppb", () => {
     }
   });
 
-  it("lays out damage and target as inputs, rate and what you have under the chart", () => {
-    expect(layout(headshotVsPpb).map((s) => [s.id, s.placement])).toEqual([
-      ["damage", "inputs"],
-      ["target", "inputs"],
-      ["rate", "chart"],
-      ["have", "chart"],
+  it("lays out damage, target and a collapsed weapon as inputs, rate and what you have under the chart", () => {
+    expect(layout(headshotVsPpb).map((s) => [s.id, s.placement, s.collapsed ?? false])).toEqual([
+      ["damage", "inputs", false],
+      ["target", "inputs", false],
+      ["weapon", "inputs", true],
+      ["rate", "chart", false],
+      ["have", "chart", false],
     ]);
   });
 });

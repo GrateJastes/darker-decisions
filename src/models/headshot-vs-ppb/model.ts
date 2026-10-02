@@ -9,6 +9,7 @@ import {
   type MarkerSpec,
   type ParamValues,
   type PresetGroup,
+  type RawValues,
   type Statement,
 } from "../types";
 
@@ -17,8 +18,8 @@ const PPB_STEP = 0.01;
 const GRID = 200;
 const MIN_LABEL_HEIGHT = 0.04;
 
-const sources = currentData.sources.filter((s) => s.school === "physical");
-const defaultSource = sources.find((s) => s.id === "physical-weapon-longsword-rare") ?? sources[0]!;
+const sources = currentData.sources.filter((s) => s.school === "physical" && s.scaling === 1);
+const defaultSource = sources.find((s) => s.id === "physical-weapon-longbow-common") ?? sources[0]!;
 
 const params = {
   source: {
@@ -36,18 +37,7 @@ const params = {
     step: 1,
     default: defaultSource.baseDamage,
     unit: "flat",
-    group: "damage",
-  },
-  scaling: {
-    kind: "number",
-    label: "Damage scaling",
-    min: 0,
-    max: 1.5,
-    step: 0.05,
-    default: defaultSource.scaling,
-    unit: "scale",
-    hint: "Attribute bonus ratio, the (1.0) after the damage",
-    group: "damage",
+    group: "weapon",
   },
   add: {
     kind: "number",
@@ -65,7 +55,7 @@ const params = {
     min: 0,
     max: 0.3,
     step: 0.01,
-    default: 0,
+    default: 0.1,
     unit: "percent",
     hint: "From the target's helmet, e.g. 10–29%",
     group: "target",
@@ -79,7 +69,7 @@ const params = {
     default: 0,
     unit: "percent",
     hint: "Cuts the target's headshot reduction; Penetrating Shot gives 50%",
-    group: "target",
+    group: "weapon",
   },
   rate: {
     kind: "number",
@@ -123,16 +113,24 @@ const sourcePresets: PresetGroup<typeof params> = {
   id: "source",
   label: "Damage source",
   before: "base",
-  hint: "Skill or weapon; fills in base damage and scaling",
+  hint: "Skill or weapon; fills in base damage",
   rememberAs: "source",
   searchable: true,
   options: sources.map((s) => ({
     value: s.id,
     label: s.label,
     group: s.group,
-    sets: { base: s.baseDamage, scaling: s.scaling },
+    sets: { base: s.baseDamage },
   })),
 };
+
+function weaponSummary(v: RawValues): string {
+  const source = sources.find((s) => s.id === v.source);
+  const name = source && source.baseDamage === v.base ? source.label : "Custom weapon";
+  const parts = [name, `${String(v.base)} dmg`];
+  if (Number(v.hsp) > 0) parts.push(`${Math.round(Number(v.hsp) * 100)}% headshot pen`);
+  return parts.join(" · ");
+}
 
 export const effectiveReduction = (p: Pick<Params, "hsr" | "hsp">) => p.hsr * (1 - Math.min(p.hsp, 1));
 
@@ -140,7 +138,7 @@ export const headMultiplier = (hsb: number, reduction: number, data: GameData) =
   data.hitLocation.head + Math.min(hsb, data.hitLocation.headshotBonusCap) - reduction;
 
 const bodyDamage = (p: Params, pb: number) =>
-  afterAdditional({ baseDamage: p.base, scaling: p.scaling, powerBonus: pb, additionalDamage: p.add });
+  afterAdditional({ baseDamage: p.base, scaling: 1, powerBonus: pb, additionalDamage: p.add });
 
 export function averageHit(p: Params, pb: number, hsb: number, rate: number, data: GameData): number {
   return bodyDamage(p, pb) * (1 + rate * (headMultiplier(hsb, effectiveReduction(p), data) - 1));
@@ -154,7 +152,7 @@ export function gains(p: Params, rate: number, data: GameData) {
   };
 }
 
-const pbWeight = (p: Params) => p.base * p.scaling;
+const pbWeight = (p: Params) => p.base;
 
 export function switchBonus(p: Params, rate: number, data: GameData): number {
   if (rate <= 0) return -Infinity;
@@ -183,6 +181,7 @@ export const headshotVsPpb = defineModel({
   groups: [
     { id: "damage", label: "Your damage", placement: "inputs" },
     { id: "target", label: "Target", placement: "inputs" },
+    { id: "weapon", label: "Your weapon", placement: "inputs", collapsed: true, summary: weaponSummary },
     { id: "rate", placement: "chart" },
     { id: "have", label: "You already have", placement: "chart", columns: 2 },
   ],
