@@ -9,6 +9,7 @@ export const ppbVsArmorpen = powerVsPen({
   names: { pb: "PPB", pen: "armor pen", dr: "PDR", damage: "physical" },
   drHint: "Capped at 65%, or 75% with Defense Mastery",
   additional: true,
+  scaling: false,
   weaponPen: {
     max: 0.4,
     step: 0.05,

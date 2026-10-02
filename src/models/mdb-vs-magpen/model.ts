@@ -11,6 +11,7 @@ export const mdbVsMagpen = powerVsPen({
   gear: { label: "Magical weapon damage", hint: "The weapon's own magical damage", max: 20 },
   weaponPen: { max: 0.15, step: 0.05, hint: "The weapon's own magic pen" },
   additional: true,
+  scaling: true,
   weaponSetsPen: false,
   weaponPicker: true,
 });

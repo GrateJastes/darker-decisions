@@ -29,6 +29,7 @@ export interface PowerVsPenConfig {
   drHint: string;
   gear?: { label: string; hint: string; max: number };
   additional: boolean;
+  scaling: boolean;
   weaponPen: { max: number; step: number; hint: string };
   weaponSetsPen: boolean;
   weaponPicker: boolean;
@@ -81,6 +82,7 @@ function paramsFor(
       unit: "scale",
       hint: "Attribute bonus ratio, the (1.0) after the damage",
       group: "damage",
+      hidden: !cfg.scaling,
     },
     gear: {
       kind: "number",
@@ -197,7 +199,9 @@ export function penFromStartAt(p: Params, data: GameData): number | undefined {
 }
 
 export function powerVsPen(cfg: PowerVsPenConfig) {
-  const sources = currentData.sources.filter((s) => s.school === cfg.school);
+  const sources = currentData.sources.filter(
+    (s) => s.school === cfg.school && (cfg.scaling || s.scaling === 1),
+  );
   const source = sources.find((s) => s.id === cfg.defaultSource) ?? sources[0]!;
   const weapons = currentData.weapons.filter((w) => w.school === cfg.school);
   const params = paramsFor(cfg, sources, source, weapons);
@@ -208,9 +212,11 @@ export function powerVsPen(cfg: PowerVsPenConfig) {
     id: "source",
     label: "Damage source",
     before: "base",
-    hint: cfg.weaponSetsPen
-      ? "Skill or weapon; fills in base damage and scaling, weapons also their armor pen"
-      : "Spell, skill or weapon; fills in base damage and scaling",
+    hint: [
+      cfg.weaponSetsPen ? "Skill or weapon" : "Spell, skill or weapon",
+      cfg.scaling ? "; fills in base damage and scaling" : "; fills in base damage",
+      cfg.weaponSetsPen ? ", weapons also their armor pen" : "",
+    ].join(""),
     rememberAs: "source",
     searchable: true,
     options: sources.map((s) => ({

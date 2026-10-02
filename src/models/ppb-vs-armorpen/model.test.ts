@@ -56,12 +56,11 @@ describe("ppb-vs-armorpen", () => {
 });
 
 describe("ppb-vs-armorpen inputs", () => {
-  it("has no weapon damage roll input; additional physical damage stays", () => {
+  it("has no weapon damage roll or scaling input; additional physical damage stays", () => {
     const damage = layout(ppbVsArmorpen).find((s) => s.id === "damage")!;
     expect(damage.items.map((i) => (i.kind === "param" ? i.key : i.preset.id))).toEqual([
       "source",
       "base",
-      "scaling",
       "wpen",
       "add",
     ]);
