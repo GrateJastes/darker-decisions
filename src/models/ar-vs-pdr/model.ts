@@ -131,7 +131,7 @@ export const arVsPdr = defineModel({
   compute(p, data) {
     const current = mode(p.dm, p.arRolls, data);
     const other = mode(!p.dm, p.arRolls, data);
-    const { tie, win } = switchArmorRating(data);
+    const { tie } = switchArmorRating(data);
     const now = nextRoll(current, p.arGear, p.pdr, data);
     const then = nextRoll(other, p.arGear, p.pdr, data);
 
@@ -173,11 +173,6 @@ export const arVsPdr = defineModel({
             template: `${otherPrefix} Defense Mastery, the same build ({total} armor rating) should roll {stat}.`,
             values: { total: rating(then.total), stat: then.stat },
           },
-      {
-        template:
-          "Between {tie} and {win} armor rating the two are equal; compared as 10 armor rating = 1% PDR.",
-        values: { tie: rating(tie), win: rating(win) },
-      },
     ];
 
     const grid = range(0, xMax, GRID);

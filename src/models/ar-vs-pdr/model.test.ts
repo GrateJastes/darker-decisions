@@ -59,9 +59,9 @@ describe("ar-vs-pdr", () => {
 
   it("keeps the same number of verdict lines in every state", () => {
     const count = (q: typeof p) => arVsPdr.compute(q, data).verdict.details.length;
-    expect(count(p)).toBe(3);
-    expect(count({ ...p, dm: true })).toBe(3);
-    expect(count({ ...p, arGear: 600, pdr: 0.2 })).toBe(3);
+    expect(count(p)).toBe(2);
+    expect(count({ ...p, dm: true })).toBe(2);
+    expect(count({ ...p, arGear: 600, pdr: 0.2 })).toBe(2);
   });
 
   it("always shows the armor rating split", () => {
