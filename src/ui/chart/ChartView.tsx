@@ -119,8 +119,8 @@ export function ChartView({ x, y, series, bands = [], markers, height = 340 }: C
   const legend = legendItems(series, bands);
   const color = (id: string) => legend.find((l) => l.id === id)?.color ?? "var(--color-ink-dim)";
   return (
-    <div>
-      <div style={{ height }}>
+    <div className="flex flex-1 flex-col">
+      <div className="flex-1" style={{ minHeight: height }}>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart margin={MARGIN}>
             <CartesianGrid stroke="var(--color-border)" strokeDasharray="2 4" vertical={false} />

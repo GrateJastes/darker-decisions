@@ -144,6 +144,8 @@ export interface ParamGroup {
   label?: string;
   placement: "inputs" | "chart";
   columns?: number | "auto";
+  collapsed?: boolean;
+  summary?: (values: RawValues) => string;
 }
 
 export interface CalculatorModel<S extends ParamSchema = ParamSchema> {
@@ -198,6 +200,8 @@ export interface LayoutSection<S extends ParamSchema> {
   label?: string;
   placement: ParamGroup["placement"];
   columns?: number | "auto";
+  collapsed?: boolean;
+  summary?: (values: RawValues) => string;
   items: LayoutItem<S>[];
 }
 
